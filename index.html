@@ -22,16 +22,6 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
 
-    /* LOGO */
-    .logo {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .logo img {
-      max-width: 120px;
-    }
-
     h1 {
       color: #e11d48;
       text-align: center;
@@ -64,25 +54,30 @@
 
     .producto {
       background: #fafafa;
-      padding: 15px;
-      border-radius: 12px;
-      margin-bottom: 10px;
+      padding: 18px 15px 15px;
+      border-radius: 14px;
+      margin-bottom: 14px;
       border: 1px solid #eee;
       position: relative;
     }
 
+    /* BOTÓN ELIMINAR VISIBLE */
     .eliminar {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #fecdd3;
+      top: -14px;
+      right: -14px;
+      background: #ef4444;
       border: none;
-      color: #9f1239;
+      color: white;
       font-weight: bold;
       border-radius: 50%;
-      width: 28px;
-      height: 28px;
+      width: 36px;
+      height: 36px;
       cursor: pointer;
+      font-size: 20px;
+      line-height: 36px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
 
     label {
@@ -146,7 +141,6 @@
       border-radius: 10px;
     }
 
-    /* MENSAJE VISUAL */
     .confirmacion {
       display: none;
       background: #ecfdf5;
@@ -162,12 +156,6 @@
 <body>
 
 <div class="contenedor">
-
-  <!-- LOGO (opcional) -->
-  <!-- Sustituye la URL por tu logo si quieres -->
-  <!-- <div class="logo">
-    <img src="https://tulogo.com/logo.png">
-  </div> -->
 
   <h1>Formulario de Pedido y Registro Member Oriflame</h1>
   <p class="subtitulo">Pedido fácil, asesoramiento personalizado y contacto directo</p>
@@ -207,15 +195,18 @@
 
     <div id="productos">
       <div class="producto">
-        <button type="button" class="eliminar" onclick="eliminarProducto(this)">×</button>
+        <!-- el primero NO tiene botón eliminar -->
         <label>Código del producto *</label>
         <input type="text" class="codigo" required>
+
         <label>Cantidad *</label>
         <input type="number" class="cantidad" min="1" required>
       </div>
     </div>
 
-    <button type="button" class="btn-secundario" onclick="agregarProducto()">➕ Añadir otro producto</button>
+    <button type="button" class="btn-secundario" onclick="agregarProducto()">
+      ➕ Añadir otro producto
+    </button>
 
     <h2>Asesoramiento (opcional)</h2>
     <textarea id="asesoramiento" rows="4"></textarea>
@@ -228,7 +219,7 @@
     </div>
 
     <div class="nota">
-      📌 Si solicitas asesoramiento me pondré en contacto contigo lo antes posible.  
+      📌 Si solicitas asesoramiento me pondré en contacto contigo lo antes posible.<br><br>
       Si realizas un pedido, te contactaré para confirmar importe total y forma de pago antes del envío.
     </div>
 
@@ -285,7 +276,10 @@ function enviarWhatsApp() {
     `🛍 Productos:\n${productosTexto}\n` +
     (asesoramiento.value ? `💬 Asesoramiento:\n${asesoramiento.value}` : '');
 
-  window.open(`https://wa.me/34610274439?text=${encodeURIComponent(mensaje)}`, "_blank");
+  window.open(
+    `https://wa.me/34610274439?text=${encodeURIComponent(mensaje)}`,
+    "_blank"
+  );
 }
 </script>
 
