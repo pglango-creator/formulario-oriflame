@@ -81,10 +81,7 @@ textarea {
   font-size: 14px;
 }
 
-/* ============================= */
-/* ✅ ARREGLO DEFINITIVO IPHONE  */
-/* ============================= */
-
+/* PRIVACIDAD - BASE (Android OK) */
 .privacy {
   display: flex;
   align-items: flex-start;
@@ -93,35 +90,31 @@ textarea {
   width: 100%;
 }
 
-/* Neutraliza el checkbox SOLO Safari iOS */
-.privacy input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin: 4px 0 0 0;
-  padding: 0;
-  flex-shrink: 0;
-  -webkit-appearance: none;
-  appearance: none;
-  border: 2px solid #999;
-  border-radius: 4px;
-  background: #fff;
-}
-
-.privacy input[type="checkbox"]:checked {
-  background-color: #ff7f96;
-  border-color: #ff7f96;
-}
-
 .privacy span {
-  display: block;
   line-height: 1.4;
-  word-break: break-word;
 }
 
-/* ============================= */
-/* BOTONES */
-/* ============================= */
+/* 🔒 SOLO IPHONE (Safari iOS) */
+@supports (-webkit-touch-callout: none) {
+  .privacy input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid #999;
+    border-radius: 4px;
+    background: #fff;
+  }
 
+  .privacy input[type="checkbox"]:checked {
+    background-color: #ff7f96;
+    border-color: #ff7f96;
+  }
+}
+
+/* BOTONES */
 .send-btn {
   margin-top: 25px;
   width: 100%;
