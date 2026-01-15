@@ -1,22 +1,21 @@
 body {
-  background: linear-gradient(180deg, #ffe6eb, #fff);
-  font-family: "Arial", sans-serif;
+  background: linear-gradient(180deg, #ffe4ea, #fff);
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
 }
 
 .container {
-  max-width: 500px;
+  max-width: 520px;
   margin: auto;
-  background: #fff;
+  background: white;
   padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 5px;
 }
 
 .subtitulo {
@@ -27,82 +26,97 @@ h1 {
 
 .beneficios {
   background: #fff1f4;
-  padding: 15px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+}
+
+.beneficios h2 {
+  margin-top: 0;
 }
 
 .beneficio {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
-.beneficio strong {
-  display: block;
+.beneficio h3 {
+  margin-bottom: 4px;
 }
 
 label {
   display: block;
-  margin-top: 12px;
+  margin-top: 14px;
   font-weight: bold;
 }
 
 input, textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 12px;
+  padding: 12px;
+  border-radius: 14px;
   border: 1px solid #ccc;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 textarea {
   resize: none;
 }
 
+.titulo-productos {
+  margin-top: 25px;
+}
+
 .producto {
   display: flex;
-  gap: 5px;
-  margin-bottom: 8px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .producto input {
   flex: 1;
 }
 
-.producto button {
+.eliminar {
   background: #ff6b6b;
-  border: none;
   color: white;
-  border-radius: 10px;
-  padding: 8px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 15px;
   border: none;
-  margin-top: 15px;
-  font-size: 16px;
+  border-radius: 12px;
+  padding: 10px;
 }
 
-button.principal {
-  background: #ff9aa2;
+.btn-secundario {
+  background: #ffd1d8;
+  border: none;
+  padding: 12px;
+  border-radius: 16px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-principal {
+  background: #ff9aa8;
+  border: none;
+  padding: 14px;
+  border-radius: 18px;
+  width: 100%;
   font-weight: bold;
-}
-
-button.secundario {
-  background: #ffd1d6;
+  margin-top: 20px;
 }
 
 .privacidad {
   font-size: 14px;
-  margin-top: 15px;
+  margin-top: 18px;
+}
+
+.check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .nota {
-  background: #f7f7f7;
-  padding: 10px;
-  border-radius: 12px;
-  margin-top: 15px;
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 14px;
+  margin-top: 16px;
   font-size: 14px;
 }
