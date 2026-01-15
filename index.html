@@ -2,176 +2,105 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pedido Oriflame</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 16px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 5px;
-    }
-
-    p.subtitle {
-      text-align: center;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: #fff;
-      padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 12px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 4px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    .producto {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .producto input {
-      flex: 1;
-    }
-
-    .producto button {
-      background: #e74c3c;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 0 12px;
-      font-size: 16px;
-    }
-
-    .add-btn {
-      margin-top: 10px;
-      background: #3498db;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 6px;
-      width: 100%;
-      font-size: 16px;
-    }
-
-    .submit-btn {
-      margin-top: 20px;
-      background: #25d366;
-      color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 8px;
-      width: 100%;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .info {
-      font-size: 14px;
-      color: #555;
-      margin-top: 14px;
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-
   <div class="container">
     <h1>Pedido Oriflame 🛍️</h1>
     <p class="subtitle">Formulario de pedido y asesoramiento personalizado</p>
 
-    <label>Nombre y apellidos *</label>
-    <input id="nombre" required>
+    <form id="pedidoForm" onsubmit="prepararPedido(event)">
+      
+      <label>Nombre y apellidos *</label>
+      <input type="text" id="nombre" required />
 
-    <label>Dirección *</label>
-    <input id="direccion" required>
+      <label>Dirección *</label>
+      <input type="text" id="direccion" required />
 
-    <label>Código Postal *</label>
-    <input id="cp" required>
+      <label>Código Postal *</label>
+      <input type="text" id="cp" required />
 
-    <label>Email *</label>
-    <input id="email" type="email" required>
+      <label>Email *</label>
+      <input type="email" id="email" required />
 
-    <label>Teléfono *</label>
-    <input id="telefono" required>
+      <label>Teléfono *</label>
+      <input type="tel" id="telefono" required />
 
-    <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
-    <input id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
+      <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
+      <input
+        type="text"
+        id="horario"
+        placeholder="Ej: mañanas, tardes, a partir de las 18h"
+      />
 
-    <h3 style="margin-top:20px;">Productos</h3>
+      <h2>Productos</h2>
 
-    <div id="productos">
-      <div class="producto">
-        <input placeholder="Código del producto">
-        <input type="number" placeholder="Cantidad" min="1">
-        <button type="button" onclick="eliminarProducto(this)">🗑️</button>
+      <div id="productos">
+        <div class="producto">
+          <input type="text" placeholder="Código del producto" class="codigo" required />
+          <input type="number" placeholder="Cantidad" class="cantidad" min="1" required />
+          <button type="button" class="eliminar" onclick="eliminarProducto(this)">🗑️</button>
+        </div>
       </div>
-    </div>
 
-    <button class="add-btn" onclick="agregarProducto()">➕ Añadir producto</button>
+      <button type="button" class="secundario" onclick="agregarProducto()">
+        ➕ Añadir otro producto
+      </button>
 
-    <label style="margin-top:16px;">¿Necesitas asesoramiento? (Opcional)</label>
-    <textarea id="asesoramiento" rows="3" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
+      <h2>Asesoramiento (opcional)</h2>
+      <textarea
+        id="asesoramiento"
+        placeholder="Cuéntame en qué puedo ayudarte…"
+      ></textarea>
 
-    <button class="submit-btn" onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
+      <div class="privacidad">
+        <input type="checkbox" required />
+        <span>
+          He leído y acepto la política de privacidad.  
+          Los datos se usarán únicamente para gestionar el pedido y el asesoramiento.
+        </span>
+      </div>
 
-    <p class="info">
-      Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.  
-      En caso de pedido, te escribiré para confirmar disponibilidad y forma de pago.
-    </p>
+      <div class="info">
+        📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.  
+        <br />
+        📦 Si realizas un pedido, te escribiré para confirmar disponibilidad, importe total
+        y forma de pago antes de tramitar el envío.
+      </div>
+
+      <button type="submit" class="principal">Preparar pedido</button>
+
+      <a id="enlaceWA" class="hidden boton-wa" target="_blank">
+        Abrir WhatsApp
+      </a>
+    </form>
   </div>
 
   <script>
     function agregarProducto() {
-      const contenedor = document.getElementById("productos");
       const div = document.createElement("div");
       div.className = "producto";
       div.innerHTML = `
-        <input placeholder="Código del producto">
-        <input type="number" placeholder="Cantidad" min="1">
-        <button type="button" onclick="eliminarProducto(this)">🗑️</button>
+        <input type="text" placeholder="Código del producto" class="codigo" required />
+        <input type="number" placeholder="Cantidad" class="cantidad" min="1" required />
+        <button type="button" class="eliminar" onclick="eliminarProducto(this)">🗑️</button>
       `;
-      contenedor.appendChild(div);
+      document.getElementById("productos").appendChild(div);
     }
 
-    function eliminarProducto(btn) {
-      btn.parentElement.remove();
+    function eliminarProducto(boton) {
+      const productos = document.querySelectorAll(".producto");
+      if (productos.length > 1) {
+        boton.parentElement.remove();
+      }
     }
 
-    function enviarWhatsApp() {
+    function prepararPedido(e) {
+      e.preventDefault();
+
       const nombre = document.getElementById("nombre").value;
       const direccion = document.getElementById("direccion").value;
       const cp = document.getElementById("cp").value;
@@ -181,31 +110,35 @@
       const asesoramiento = document.getElementById("asesoramiento").value;
 
       let productosTexto = "";
-      document.querySelectorAll("#productos .producto").forEach((p, i) => {
-        const codigo = p.children[0].value;
-        const cantidad = p.children[1].value;
-        if (codigo && cantidad) {
-          productosTexto += `${i+1}. ${codigo} x ${cantidad}\n`;
-        }
+      document.querySelectorAll(".producto").forEach((p, i) => {
+        const codigo = p.querySelector(".codigo").value;
+        const cantidad = p.querySelector(".cantidad").value;
+        productosTexto += `${i + 1}. Código: ${codigo} - Cantidad: ${cantidad}\n`;
       });
 
       let mensaje =
-`🛍️ NUEVO PEDIDO ORIFLAME
+`🛍️ *NUEVO PEDIDO ORIFLAME*
 
 👤 Nombre: ${nombre}
 🏠 Dirección: ${direccion}
 📮 CP: ${cp}
 📧 Email: ${email}
-📱 Teléfono: ${telefono}
-${horario ? "⏰ Horario de contacto: " + horario + "\n" : ""}
-📦 Productos:
+📞 Teléfono: ${telefono}
+${horario ? "⏰ Horario de contacto: " + horario : ""}
+
+📦 *Productos:*
 ${productosTexto}
 ${asesoramiento ? "💬 Asesoramiento:\n" + asesoramiento : ""}`;
 
-      const url = "https://wa.me/34610274439?text=" + encodeURIComponent(mensaje);
-      window.open(url, "_blank");
+      const url =
+        "https://api.whatsapp.com/send?phone=34610274439&text=" +
+        encodeURIComponent(mensaje);
+
+      const enlace = document.getElementById("enlaceWA");
+      enlace.href = url;
+      enlace.classList.remove("hidden");
+      enlace.click();
     }
   </script>
-
 </body>
 </html>
