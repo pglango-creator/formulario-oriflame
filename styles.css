@@ -1,17 +1,21 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(180deg, #fde2e4, #fff);
+  background: linear-gradient(180deg, #ffe6ec, #fff);
   margin: 0;
   padding: 20px;
 }
 
 .container {
-  max-width: 520px;
+  max-width: 480px;
   margin: auto;
   background: #fff;
-  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 h1 {
@@ -24,10 +28,10 @@ h1 {
 }
 
 .beneficios {
-  background: #e6f6f0;
-  padding: 15px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  background: #fff0f4;
+  padding: 16px;
+  border-radius: 16px;
+  margin: 20px 0;
 }
 
 .beneficio {
@@ -35,86 +39,67 @@ h1 {
 }
 
 label {
-  display: block;
   margin-top: 12px;
+  display: block;
   font-weight: 600;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 12px;
+  margin-top: 6px;
   border-radius: 12px;
   border: 1px solid #ddd;
-  margin-top: 5px;
-  box-sizing: border-box;
 }
 
 textarea {
-  resize: vertical;
-}
-
-h2 {
-  margin-top: 25px;
+  min-height: 90px;
 }
 
 .producto {
   display: flex;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .producto input {
   flex: 1;
 }
 
-.producto button {
-  background: #ff6b6b;
+.eliminar {
+  background: #ff5c5c;
   border: none;
+  color: #fff;
   border-radius: 10px;
-  color: white;
   padding: 0 10px;
 }
 
 .add {
-  margin-top: 10px;
-  width: 100%;
-  background: #ffb3c1;
+  background: #ffd0da;
   border: none;
+  padding: 10px;
   border-radius: 12px;
-  padding: 12px;
-  font-weight: bold;
-}
-
-.privacidad {
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.info {
-  margin-top: 15px;
-  background: #f7f7f7;
-  padding: 12px;
-  border-radius: 12px;
-  font-size: 14px;
-}
-
-.enviar {
-  margin-top: 20px;
   width: 100%;
-  background: #ff8fab;
+  margin-bottom: 10px;
+}
+
+.submit {
+  background: #ff7b9c;
+  color: #fff;
+  padding: 14px;
   border: none;
   border-radius: 14px;
-  padding: 14px;
+  width: 100%;
   font-size: 16px;
-  font-weight: bold;
 }
 
 .whatsapp {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
   text-align: center;
   background: #25d366;
-  color: white;
+  color: #fff;
   padding: 12px;
   border-radius: 14px;
   text-decoration: none;
@@ -122,4 +107,13 @@ h2 {
 
 .hidden {
   display: none;
+}
+
+.info {
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+.privacidad {
+  margin: 14px 0;
 }
