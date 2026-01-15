@@ -1,70 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Pedido y Registro Member Oriflame</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedido Oriflame</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fff1f2, #fff7ed);
+      background: #f9f9f9;
       margin: 0;
-      padding: 20px;
-    }
-
-    .contenedor {
-      max-width: 680px;
-      margin: auto;
-      background: white;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      padding: 16px;
     }
 
     h1 {
-      color: #e11d48;
       text-align: center;
       margin-bottom: 5px;
     }
 
-    .subtitulo {
+    p.subtitle {
       text-align: center;
       color: #555;
       margin-bottom: 20px;
     }
 
-    h2 {
-      color: #333;
-      border-bottom: 2px solid #fda4af;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-
-    .beneficios {
-      background: #fff3f6;
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
       padding: 16px;
-      border-radius: 14px;
-      margin-bottom: 20px;
-    }
-
-    .beneficios li {
-      margin-bottom: 6px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     label {
       font-weight: bold;
       display: block;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     input, textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
-      border-radius: 10px;
+      margin-top: 4px;
+      border-radius: 6px;
       border: 1px solid #ccc;
-      font-size: 14px;
+      font-size: 16px;
+      box-sizing: border-box;
     }
 
     textarea {
@@ -72,74 +54,51 @@
     }
 
     .producto {
-      background: #fafafa;
-      padding: 18px 15px 15px;
-      border-radius: 14px;
-      margin-bottom: 14px;
-      border: 1px solid #eee;
-      position: relative;
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
     }
 
-    .eliminar {
-      position: absolute;
-      top: -14px;
-      right: -14px;
-      background: #ef4444;
-      border: none;
-      color: white;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      font-size: 20px;
-      line-height: 36px;
-      text-align: center;
+    .producto input {
+      flex: 1;
     }
 
-    .btn-secundario {
-      background: #fda4af;
-      border: none;
-      padding: 12px;
-      border-radius: 12px;
-      color: #7f1d1d;
-      font-weight: bold;
-      margin-top: 12px;
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .nota {
-      font-size: 13px;
-      color: #555;
-      margin-top: 15px;
-      background: #f9f9f9;
-      padding: 12px;
-      border-radius: 10px;
-    }
-
-    .privacidad {
-      font-size: 12px;
-      color: #555;
-      margin-top: 20px;
-      background: #f9f9f9;
-      padding: 12px;
-      border-radius: 10px;
-    }
-
-    .boton {
-      width: 100%;
-      background: #25D366;
+    .producto button {
+      background: #e74c3c;
       color: white;
       border: none;
-      padding: 15px;
+      border-radius: 6px;
+      padding: 0 12px;
       font-size: 16px;
-      border-radius: 14px;
-      cursor: pointer;
+    }
+
+    .add-btn {
+      margin-top: 10px;
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .submit-btn {
       margin-top: 20px;
-      text-align: center;
-      text-decoration: none;
-      display: block;
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #555;
+      margin-top: 14px;
     }
 
     .hidden {
@@ -150,125 +109,103 @@
 
 <body>
 
-<div class="contenedor">
+  <div class="container">
+    <h1>Pedido Oriflame 🛍️</h1>
+    <p class="subtitle">Formulario de pedido y asesoramiento personalizado</p>
 
-  <h1>Formulario de Pedido y Registro Member Oriflame</h1>
-  <p class="subtitulo">Pedido fácil, asesoramiento personalizado y contacto directo</p>
+    <label>Nombre y apellidos *</label>
+    <input id="nombre" required>
 
-  <div class="beneficios">
-    <h2>🌟 Ventajas de ser Member Oriflame</h2>
-    <ul>
-      <li>✔️ 15% de descuento de bienvenida</li>
-      <li>✔️ 15% de cashback en cada compra</li>
-      <li>✔️ Promociones exclusivas</li>
-      <li>✔️ Recompensas por recomendar</li>
-      <li>✔️ Asesoramiento personalizado sin coste</li>
-      <li>✔️ Sin permanencia ni obligación de compra</li>
-    </ul>
-  </div>
+    <label>Dirección *</label>
+    <input id="direccion" required>
 
-  <h2>Datos del cliente</h2>
+    <label>Código Postal *</label>
+    <input id="cp" required>
 
-  <label>Nombre y apellidos *</label>
-  <input id="nombre">
+    <label>Email *</label>
+    <input id="email" type="email" required>
 
-  <label>Dirección completa *</label>
-  <input id="direccion">
+    <label>Teléfono *</label>
+    <input id="telefono" required>
 
-  <label>Código postal *</label>
-  <input id="cp">
+    <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
+    <input id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
-  <label>Email *</label>
-  <input id="email">
+    <h3 style="margin-top:20px;">Productos</h3>
 
-  <label>Teléfono *</label>
-  <input id="telefono">
-
-  <h2>Productos</h2>
-
-  <div id="productos">
-    <div class="producto">
-      <label>Código del producto *</label>
-      <input class="codigo">
-      <label>Cantidad *</label>
-      <input type="number" class="cantidad" value="1">
+    <div id="productos">
+      <div class="producto">
+        <input placeholder="Código del producto">
+        <input type="number" placeholder="Cantidad" min="1">
+        <button type="button" onclick="eliminarProducto(this)">🗑️</button>
+      </div>
     </div>
-  </div>
 
-  <button class="btn-secundario" onclick="agregarProducto()">➕ Añadir otro producto</button>
+    <button class="add-btn" onclick="agregarProducto()">➕ Añadir producto</button>
 
-  <h2>Asesoramiento (opcional)</h2>
-  <textarea id="asesoramiento" rows="4"></textarea>
+    <label style="margin-top:16px;">¿Necesitas asesoramiento? (Opcional)</label>
+    <textarea id="asesoramiento" rows="3" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
 
-  <div class="privacidad">
-    <label>
-      <input type="checkbox">
-      He leído y acepto la política de privacidad.
-    </label>
-    <p>
-      Los datos introducidos se utilizarán únicamente para gestionar tu pedido
-      y ofrecerte asesoramiento personalizado como consultora Oriflame.
-      No se cederán a terceros.
+    <button class="submit-btn" onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
+
+    <p class="info">
+      Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.  
+      En caso de pedido, te escribiré para confirmar disponibilidad y forma de pago.
     </p>
   </div>
 
-  <div class="nota">
-    📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br><br>
-    Si realizas un pedido, me pondré en contacto contigo para confirmar disponibilidad,
-    importe total y forma de pago antes de tramitar el envío.
-  </div>
+  <script>
+    function agregarProducto() {
+      const contenedor = document.getElementById("productos");
+      const div = document.createElement("div");
+      div.className = "producto";
+      div.innerHTML = `
+        <input placeholder="Código del producto">
+        <input type="number" placeholder="Cantidad" min="1">
+        <button type="button" onclick="eliminarProducto(this)">🗑️</button>
+      `;
+      contenedor.appendChild(div);
+    }
 
-  <!-- PASO 1 -->
-  <button class="btn-secundario" onclick="prepararPedido()">
-    Preparar pedido
-  </button>
+    function eliminarProducto(btn) {
+      btn.parentElement.remove();
+    }
 
-  <!-- PASO 2: ENLACE REAL -->
-  <a id="enlaceWA" class="boton hidden" target="_blank">
-    👉 Enviar pedido por WhatsApp
-  </a>
+    function enviarWhatsApp() {
+      const nombre = document.getElementById("nombre").value;
+      const direccion = document.getElementById("direccion").value;
+      const cp = document.getElementById("cp").value;
+      const email = document.getElementById("email").value;
+      const telefono = document.getElementById("telefono").value;
+      const horario = document.getElementById("horario").value;
+      const asesoramiento = document.getElementById("asesoramiento").value;
 
-</div>
+      let productosTexto = "";
+      document.querySelectorAll("#productos .producto").forEach((p, i) => {
+        const codigo = p.children[0].value;
+        const cantidad = p.children[1].value;
+        if (codigo && cantidad) {
+          productosTexto += `${i+1}. ${codigo} x ${cantidad}\n`;
+        }
+      });
 
-<script>
-function agregarProducto() {
-  const div = document.createElement("div");
-  div.className = "producto";
-  div.innerHTML = `
-    <button class="eliminar" onclick="this.parentElement.remove()">×</button>
-    <label>Código del producto *</label>
-    <input class="codigo">
-    <label>Cantidad *</label>
-    <input type="number" class="cantidad" value="1">
-  `;
-  document.getElementById("productos").appendChild(div);
-}
+      let mensaje =
+`🛍️ NUEVO PEDIDO ORIFLAME
 
-function prepararPedido() {
-  let productosTexto = "";
-  document.querySelectorAll(".producto").forEach((p, i) => {
-    productosTexto += `${i + 1}. Código: ${p.querySelector(".codigo").value} | Cantidad: ${p.querySelector(".cantidad").value}\n`;
-  });
+👤 Nombre: ${nombre}
+🏠 Dirección: ${direccion}
+📮 CP: ${cp}
+📧 Email: ${email}
+📱 Teléfono: ${telefono}
+${horario ? "⏰ Horario de contacto: " + horario + "\n" : ""}
+📦 Productos:
+${productosTexto}
+${asesoramiento ? "💬 Asesoramiento:\n" + asesoramiento : ""}`;
 
-  const mensaje =
-    `*NUEVO PEDIDO / REGISTRO MEMBER ORIFLAME*\n\n` +
-    `👤 Nombre: ${nombre.value}\n` +
-    `🏠 Dirección: ${direccion.value}\n` +
-    `📮 CP: ${cp.value}\n` +
-    `📧 Email: ${email.value}\n` +
-    `📱 Teléfono: ${telefono.value}\n\n` +
-    `🛍️ Productos:\n${productosTexto}\n` +
-    (asesoramiento.value ? `💬 Asesoramiento:\n${asesoramiento.value}` : '');
-
-  const url =
-    "https://api.whatsapp.com/send?phone=34610274439&text=" +
-    encodeURIComponent(mensaje);
-
-  const enlace = document.getElementById("enlaceWA");
-  enlace.href = url;
-  enlace.classList.remove("hidden");
-}
-</script>
+      const url = "https://wa.me/34610274439?text=" + encodeURIComponent(mensaje);
+      window.open(url, "_blank");
+    }
+  </script>
 
 </body>
 </html>
