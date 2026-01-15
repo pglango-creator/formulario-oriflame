@@ -10,8 +10,6 @@
 
 <div class="container">
 
-  <h1>Pedido Oriflame 🛍️</h1>
-
   <label>Email *</label>
   <input type="email" required>
 
@@ -34,25 +32,25 @@
   <label>¿Necesitas asesoramiento? (Opcional)</label>
   <textarea placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
 
-  <div class="info-text">
+  <p class="info-text">
     📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
     📦 Si realizas un pedido, te escribiré para confirmar disponibilidad, precio y forma de pago.
-  </div>
+  </p>
 
-  <!-- PRIVACIDAD (ESTRUCTURA CLARA Y ESTABLE) -->
-  <label class="privacy">
+  <!-- PRIVACIDAD -->
+  <div class="privacy">
     <input type="checkbox" required>
-    <span>
+    <label>
       He leído y acepto la política de privacidad.  
       Los datos se usarán únicamente para gestionar el pedido y el asesoramiento.
-    </span>
-  </label>
+    </label>
+  </div>
 
   <button class="send-btn">Enviar pedido por WhatsApp</button>
 
   <a
-    class="contact-btn"
     href="https://wa.me/34610274439?text=Hola,%20¿puedes%20asesorarme?"
+    class="contact-btn"
     target="_blank"
   >
     💬 Contactar por WhatsApp para asesoramiento
@@ -61,4 +59,4 @@
 </div>
 
 </body>
-    </html>
+</html>
