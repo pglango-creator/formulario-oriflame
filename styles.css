@@ -81,40 +81,28 @@ textarea {
   font-size: 14px;
 }
 
-/* PRIVACIDAD - BASE (Android OK) */
+/* 🔴 AQUÍ ESTÁ EL ARREGLO DEFINITIVO PARA IPHONE */
 .privacy {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   margin-top: 20px;
   width: 100%;
+  box-sizing: border-box;
+}
+
+.privacy input {
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
 .privacy span {
+  display: block;
+  width: 100%;
   line-height: 1.4;
 }
 
-/* 🔒 SOLO IPHONE (Safari iOS) */
-@supports (-webkit-touch-callout: none) {
-  .privacy input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-top: 4px;
-    flex-shrink: 0;
-    -webkit-appearance: none;
-    appearance: none;
-    border: 2px solid #999;
-    border-radius: 4px;
-    background: #fff;
-  }
-
-  .privacy input[type="checkbox"]:checked {
-    background-color: #ff7f96;
-    border-color: #ff7f96;
-  }
-}
-
-/* BOTONES */
+/* 🔽 BOTONES */
 .send-btn {
   margin-top: 25px;
   width: 100%;
