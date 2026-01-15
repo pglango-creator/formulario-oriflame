@@ -184,6 +184,10 @@
   <label>Teléfono *</label>
   <input id="telefono">
 
+  <!-- NUEVO CAMPO -->
+  <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
+  <input id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h…">
+
   <h2>Productos</h2>
 
   <div id="productos">
@@ -206,7 +210,7 @@
       He leído y acepto la política de privacidad.
     </label>
     <p>
-      Los datos introducidos se utilizarán únicamente para gestionar tu pedido
+      Los datos se utilizarán únicamente para gestionar tu pedido
       y ofrecerte asesoramiento personalizado como consultora Oriflame.
       No se cederán a terceros.
     </p>
@@ -223,7 +227,7 @@
     Preparar pedido
   </button>
 
-  <!-- PASO 2: ENLACE REAL -->
+  <!-- PASO 2: ENLACE REAL (CLAVE PARA IPHONE) -->
   <a id="enlaceWA" class="boton hidden" target="_blank">
     👉 Enviar pedido por WhatsApp
   </a>
@@ -256,8 +260,9 @@ function prepararPedido() {
     `🏠 Dirección: ${direccion.value}\n` +
     `📮 CP: ${cp.value}\n` +
     `📧 Email: ${email.value}\n` +
-    `📱 Teléfono: ${telefono.value}\n\n` +
-    `🛍️ Productos:\n${productosTexto}\n` +
+    `📱 Teléfono: ${telefono.value}\n` +
+    (horario.value ? `⏰ Horario de contacto: ${horario.value}\n` : ``) +
+    `\n🛍️ Productos:\n${productosTexto}\n` +
     (asesoramiento.value ? `💬 Asesoramiento:\n${asesoramiento.value}` : '');
 
   const url =
