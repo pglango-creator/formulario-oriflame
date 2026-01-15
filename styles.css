@@ -1,31 +1,37 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #ffe6ec, #ffffff);
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif;
+  background: #ffe6eb;
 }
 
 .contenedor {
   max-width: 500px;
-  margin: 30px auto;
+  margin: 20px auto;
   background: #ffffff;
-  padding: 20px;
   border-radius: 20px;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .subtitulo {
   text-align: center;
   color: #777;
+  margin-bottom: 20px;
 }
 
 .beneficios {
   background: #fff1f4;
-  padding: 15px;
   border-radius: 15px;
+  padding: 15px;
   margin-bottom: 20px;
+}
+
+.beneficios h2 {
+  margin-top: 0;
 }
 
 .beneficios ul {
@@ -35,16 +41,15 @@ h1 {
 label {
   display: block;
   margin-top: 15px;
-  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 input,
 textarea {
   width: 100%;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  margin-top: 5px;
 }
 
 textarea {
@@ -65,13 +70,25 @@ textarea {
   flex: 1;
 }
 
-.btn-anadir {
+.btn-secundario {
   width: 100%;
-  padding: 12px;
-  background: #ffd6df;
+  background: #ffd1dc;
   border: none;
   border-radius: 20px;
-  font-weight: bold;
+  padding: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-principal {
+  width: 100%;
+  background: #ff7a8a;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  font-size: 16px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -82,24 +99,14 @@ textarea {
   font-size: 14px;
 }
 
-/* BOTÓN WHATSAPP */
-.whatsapp-asesoria {
-  margin-top: 30px;
-  text-align: center;
-}
-
 .btn-whatsapp {
-  display: inline-block;
-  background-color: #25D366;
-  color: #ffffff;
-  padding: 16px 22px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: bold;
+  display: block;
+  text-align: center;
+  background: #25d366;
+  color: white;
+  padding: 15px;
+  border-radius: 25px;
+  margin-top: 20px;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.btn-whatsapp:hover {
-  opacity: 0.9;
+  font-size: 16px;
 }
