@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Formulario Oriflame</title>
+  <title>Pedido y Registro Member Oriflame</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -41,11 +41,18 @@
       margin-top: 30px;
     }
 
-    ul {
-      padding-left: 20px;
+    .beneficios {
+      background: #fff3f6;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
 
-    li {
+    .beneficios ul {
+      padding-left: 18px;
+    }
+
+    .beneficios li {
       margin-bottom: 8px;
     }
 
@@ -68,10 +75,19 @@
       resize: vertical;
     }
 
-    .aviso {
+    .nota {
+      font-size: 13px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .privacidad {
       font-size: 12px;
       color: #555;
-      margin-top: 15px;
+      margin-top: 20px;
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 10px;
     }
 
     .boton {
@@ -92,7 +108,7 @@
 
     .whatsapp {
       text-align: center;
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
     .whatsapp a {
@@ -117,18 +133,22 @@
 
   <div class="contenedor">
 
-    <h1>Registro Member Oriflame</h1>
-    <p class="subtitulo">Haz tu pedido y disfruta de ventajas exclusivas</p>
+    <h1>Formulario de Pedido y Registro Member Oriflame</h1>
+    <p class="subtitulo">
+      Haz tu pedido de forma rápida y cómoda o regístrate como Member para disfrutar de ventajas exclusivas.
+    </p>
 
-    <h2>Beneficios de ser Member ✨</h2>
-    <ul>
-      <li>🎁 15% de descuento de bienvenida</li>
-      <li>💸 15% de cashback en tus compras</li>
-      <li>🚚 Envío gratuito en productos seleccionados</li>
-      <li>💎 Acceso a promociones exclusivas</li>
-      <li>🤝 Recompensas por recomendar a otras personas</li>
-      <li>⏳ Sin permanencia ni compromiso</li>
-    </ul>
+    <div class="beneficios">
+      <h2>🌟 Ventajas de ser Member Oriflame</h2>
+      <ul>
+        <li>✔️ 15% de descuento de bienvenida en tu primer pedido</li>
+        <li>✔️ 15% de cashback en cada compra</li>
+        <li>✔️ Promociones exclusivas solo para Members</li>
+        <li>✔️ Recompensas por recomendar productos</li>
+        <li>✔️ Asesoramiento personalizado sin coste</li>
+        <li>✔️ Sin permanencia ni obligación de compra</li>
+      </ul>
+    </div>
 
     <form onsubmit="enviarWhatsApp(event)">
 
@@ -143,10 +163,10 @@
       <label>Código postal *</label>
       <input type="text" id="cp" pattern="[0-9]{5}" required>
 
-      <label>Email *</label>
+      <label>Correo electrónico *</label>
       <input type="email" id="email" required>
 
-      <label>Teléfono *</label>
+      <label>Teléfono de contacto *</label>
       <input type="tel" id="telefono" pattern="[0-9]{9}" required>
 
       <h2>Producto</h2>
@@ -157,22 +177,36 @@
       <label>Cantidad *</label>
       <input type="number" id="cantidad" min="1" required>
 
-      <h2>Asesoramiento (opcional)</h2>
-      <textarea id="asesoramiento" rows="4" placeholder="Cuéntame en qué puedo ayudarte…"></textarea>
+      <h2>¿Quieres asesoramiento personalizado? (Opcional)</h2>
+      <p class="nota">
+        Tipo de piel, productos que usas, dudas, si es para regalo…
+        Cuanta más información me des, mejor podré ayudarte 💚
+      </p>
+      <textarea id="asesoramiento" rows="4" placeholder="Escribe aquí si necesitas ayuda"></textarea>
 
-      <div class="aviso">
-        <input type="checkbox" required>
-        He leído y acepto la política de privacidad.  
-        Los datos se usarán únicamente para gestionar el pedido, el registro como Member
-        y el contacto relacionado con Oriflame. No se cederán a terceros.
+      <div class="privacidad">
+        <label>
+          <input type="checkbox" required>
+          He leído y acepto la política de privacidad.
+        </label>
+        <p>
+          Los datos introducidos en este formulario se utilizarán únicamente para gestionar tu pedido
+          y ofrecerte asesoramiento personalizado como consultora Oriflame.
+          No se cederán a terceros y podrás solicitar su modificación o eliminación en cualquier momento
+          escribiéndome por WhatsApp.
+        </p>
       </div>
 
-      <button class="boton" type="submit">Enviar pedido por WhatsApp</button>
+      <button class="boton" type="submit">
+        Enviar pedido por WhatsApp
+      </button>
     </form>
 
     <div class="whatsapp">
-      <a href="https://wa.me/34610274439" target="_blank">Contactar directamente por WhatsApp</a>
-      <p>Para asesoramiento personalizado sin compromiso</p>
+      <a href="https://wa.me/34610274439" target="_blank">
+        Contactar directamente por WhatsApp
+      </a>
+      <p>Si solo quieres asesoramiento sin hacer pedido</p>
     </div>
 
   </div>
@@ -182,13 +216,15 @@
       e.preventDefault();
 
       const mensaje =
-        `*NUEVO PEDIDO / REGISTRO MEMBER*\n\n` +
+        `*NUEVO PEDIDO / REGISTRO MEMBER ORIFLAME*\n\n` +
         `👤 Nombre: ${nombre.value}\n` +
         `🏠 Dirección: ${direccion.value}\n` +
         `📮 CP: ${cp.value}\n` +
         `📧 Email: ${email.value}\n` +
         `📱 Teléfono: ${telefono.value}\n\n` +
-        `🛍 Producto:\nCódigo: ${codigo.value}\nCantidad: ${cantidad.value}\n\n` +
+        `🛍 Producto:\n` +
+        `Código: ${codigo.value}\n` +
+        `Cantidad: ${cantidad.value}\n\n` +
         (asesoramiento.value ? `💬 Asesoramiento:\n${asesoramiento.value}` : '');
 
       const url = `https://wa.me/34610274439?text=${encodeURIComponent(mensaje)}`;
