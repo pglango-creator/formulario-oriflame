@@ -13,28 +13,32 @@
     <h1>Pedido Oriflame 🛍️</h1>
     <p class="subtitulo">Formulario de pedido y asesoramiento personalizado</p>
 
-    <!-- BENEFICIOS MEMBER -->
+    <!-- BENEFICIOS -->
     <div class="beneficios">
       <h2>✨ Beneficios por ser Member</h2>
 
       <div class="beneficio">
-        <strong>🏷️ 15 % de descuento de bienvenida + envío gratis</strong>
-        <p>Ahorra un <strong>15 %</strong> en tu primer pedido y disfruta de envío gratuito en productos seleccionados.</p>
+        <h3>🏷️ 15 % de descuento de bienvenida + envío gratis</h3>
+        <p>
+          Ahorra un <strong>15 %</strong> en tu primer pedido y disfruta de envío
+          gratuito en productos seleccionados.
+        </p>
       </div>
 
       <div class="beneficio">
-        <strong>💰 15 % de cashback en cada compra</strong>
-        <p>Recupera un <strong>15 %</strong> de tus compras para usarlo en próximos pedidos.</p>
+        <h3>💰 15 % de cashback en cada compra</h3>
+        <p>
+          Obtén un <strong>15 %</strong> de cashback en cada pedido para usarlo
+          en próximas compras.
+        </p>
       </div>
 
       <div class="beneficio">
-        <strong>🔁 Recompensas cuando tus amigos compran</strong>
-        <p>Comparte y gana beneficios por cada pedido realizado.</p>
-      </div>
-
-      <div class="beneficio">
-        <strong>📦 Pedidos gestionados directamente conmigo</strong>
-        <p>Acompañamiento personalizado en todo el proceso.</p>
+        <h3>🔁 Recompensas cuando tus amigos compran</h3>
+        <p>
+          Comparte tus productos favoritos y gana beneficios por cada pedido
+          que realicen.
+        </p>
       </div>
     </div>
 
@@ -60,17 +64,19 @@
       <input type="text" id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
       <!-- PRODUCTOS -->
-      <h2>🛒 Productos</h2>
+      <h2 class="titulo-productos">🛒 Productos</h2>
 
       <div id="productos">
         <div class="producto">
           <input type="text" placeholder="Código del producto">
-          <input type="number" placeholder="Cantidad" value="1" min="1">
-          <button type="button" onclick="eliminarProducto(this)">🗑️</button>
+          <input type="number" min="1" value="1">
+          <button type="button" class="eliminar" onclick="eliminarProducto(this)">🗑️</button>
         </div>
       </div>
 
-      <button type="button" class="secundario" onclick="agregarProducto()">➕ Añadir otro producto</button>
+      <button type="button" class="btn-secundario" onclick="agregarProducto()">
+        ➕ Añadir otro producto
+      </button>
 
       <!-- ASESORAMIENTO -->
       <label>¿Necesitas asesoramiento? (Opcional)</label>
@@ -78,12 +84,12 @@
 
       <!-- PRIVACIDAD -->
       <div class="privacidad">
-        <label>
-          <input type="checkbox" id="privacidad" required>
+        <label class="check">
+          <input type="checkbox" required>
           He leído y acepto la política de privacidad.
         </label>
         <p>
-          Los datos se usarán únicamente para gestionar tu pedido y ofrecerte
+          Los datos se utilizarán únicamente para gestionar tu pedido y ofrecerte
           asesoramiento personalizado como consultora Oriflame.
           No se cederán a terceros.
         </p>
@@ -94,12 +100,13 @@
         📦 Si realizas un pedido, te escribiré para confirmar disponibilidad y forma de pago.
       </div>
 
-      <button type="submit" class="principal">Preparar pedido</button>
+      <button type="submit" class="btn-principal">
+        Preparar pedido
+      </button>
 
     </form>
   </div>
 
-  <!-- SCRIPT -->
   <script>
     function agregarProducto() {
       const contenedor = document.getElementById("productos");
@@ -107,8 +114,8 @@
       div.className = "producto";
       div.innerHTML = `
         <input type="text" placeholder="Código del producto">
-        <input type="number" placeholder="Cantidad" value="1" min="1">
-        <button type="button" onclick="eliminarProducto(this)">🗑️</button>
+        <input type="number" min="1" value="1">
+        <button type="button" class="eliminar" onclick="eliminarProducto(this)">🗑️</button>
       `;
       contenedor.appendChild(div);
     }
@@ -120,41 +127,29 @@
     document.getElementById("formulario").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const nombre = document.getElementById("nombre").value;
-      const direccion = document.getElementById("direccion").value;
-      const cp = document.getElementById("cp").value;
-      const email = document.getElementById("email").value;
-      const telefono = document.getElementById("telefono").value;
-      const horario = document.getElementById("horario").value;
-      const asesoramiento = document.getElementById("asesoramiento").value;
+      let mensaje = "🛍️ NUEVO PEDIDO ORIFLAME\n\n";
 
-      let productosTexto = "";
+      mensaje += `👤 Nombre: ${nombre.value}\n`;
+      mensaje += `🏠 Dirección: ${direccion.value}\n`;
+      mensaje += `📮 CP: ${cp.value}\n`;
+      mensaje += `📧 Email: ${email.value}\n`;
+      mensaje += `📱 Teléfono: ${telefono.value}\n`;
+      mensaje += `⏰ Horario: ${horario.value || "No indicado"}\n\n`;
+
+      mensaje += "📦 Productos:\n";
       document.querySelectorAll(".producto").forEach((p, i) => {
-        const codigo = p.children[0].value;
-        const cantidad = p.children[1].value;
-        if (codigo) {
-          productosTexto += `${i + 1}. Código: ${codigo} - Cantidad: ${cantidad}\n`;
-        }
+        const c = p.children[0].value;
+        const q = p.children[1].value;
+        if (c) mensaje += `${i + 1}. ${c} x ${q}\n`;
       });
 
-      let mensaje =
-`🛍️ NUEVO PEDIDO ORIFLAME
+      if (asesoramiento.value) {
+        mensaje += `\n💬 Asesoramiento:\n${asesoramiento.value}`;
+      }
 
-👤 Nombre: ${nombre}
-🏠 Dirección: ${direccion}
-📮 CP: ${cp}
-📧 Email: ${email}
-📱 Teléfono: ${telefono}
-⏰ Horario: ${horario || "No indicado"}
+      const url = "https://api.whatsapp.com/send?phone=34610274439&text=" +
+        encodeURIComponent(mensaje);
 
-📦 Productos:
-${productosTexto || "No indicados"}
-
-💬 Asesoramiento:
-${asesoramiento || "No solicitado"}
-`;
-
-      const url = "https://api.whatsapp.com/send?phone=34610274439&text=" + encodeURIComponent(mensaje);
       window.open(url, "_blank");
     });
   </script>
