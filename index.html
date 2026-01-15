@@ -3,28 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulario Oriflame</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Pedido Oriflame</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
 
   <div class="container">
-    <h1>Pedido Oriflame</h1>
+    <h1>🛍️ Pedido Oriflame</h1>
+    <p class="intro">
+      Rellena este formulario y recibirás tu pedido cómodamente por WhatsApp.
+    </p>
 
+    <!-- BENEFICIOS MEMBER -->
+    <div class="box highlight">
+      <h2>💎 Ventajas de ser Member Oriflame</h2>
+      <ul>
+        <li>✔️ Descuentos exclusivos en todos los pedidos</li>
+        <li>✔️ Acceso a promociones y regalos especiales</li>
+        <li>✔️ Posibilidad de comprar solo cuando tú quieras</li>
+        <li>✔️ Sin obligación de compra</li>
+      </ul>
+      <p class="small">
+        Si aún no eres Member, puedo ayudarte a registrarte sin compromiso.
+      </p>
+    </div>
+
+    <!-- FORMULARIO -->
     <form id="pedidoForm">
+
       <label>Nombre</label>
-      <input type="text" id="nombre" required>
+      <input type="text" id="nombre" required />
 
       <label>Dirección</label>
-      <input type="text" id="direccion" required>
+      <input type="text" id="direccion" required />
 
       <label>Código postal</label>
-      <input type="text" id="cp" required>
+      <input type="text" id="cp" required />
 
-      <label>Pedido</label>
-      <textarea id="pedido" rows="4" required></textarea>
+      <label>Productos y cantidades</label>
+      <textarea id="productos" placeholder="Ej: Crema Diamond x1, Perfume x2" required></textarea>
 
-      <button type="submit">Enviar por WhatsApp</button>
+      <!-- ASESORAMIENTO -->
+      <div class="box">
+        <label class="checkbox">
+          <input type="checkbox" id="asesoramiento" />
+          Quiero asesoramiento personalizado para elegir mis productos
+        </label>
+      </div>
+
+      <!-- PRIVACIDAD -->
+      <div class="privacy">
+        <label class="checkbox">
+          <input type="checkbox" required />
+          He leído y acepto la <strong>política de privacidad</strong>.
+        </label>
+        <p class="small">
+          Tus datos se usarán únicamente para gestionar tu pedido y responder por WhatsApp.
+        </p>
+      </div>
+
+      <button type="submit">📲 Enviar pedido por WhatsApp</button>
     </form>
   </div>
 
@@ -35,19 +73,28 @@
       const nombre = document.getElementById("nombre").value;
       const direccion = document.getElementById("direccion").value;
       const cp = document.getElementById("cp").value;
-      const pedido = document.getElementById("pedido").value;
+      const productos = document.getElementById("productos").value;
+      const asesoramiento = document.getElementById("asesoramiento").checked
+        ? "Sí quiero asesoramiento personalizado"
+        : "No necesito asesoramiento";
 
-      const mensaje =
-        `Pedido Oriflame:%0A%0A` +
-        `Nombre: ${nombre}%0A` +
-        `Dirección: ${direccion}%0A` +
-        `CP: ${cp}%0A` +
-        `Pedido: ${pedido}`;
+      const mensaje = `
+Pedido Oriflame 🛍️
 
-      window.open(
-        `https://wa.me/34610274439?text=${mensaje}`,
-        "_blank"
-      );
+Nombre: ${nombre}
+Dirección: ${direccion}
+Código Postal: ${cp}
+
+Productos:
+${productos}
+
+Asesoramiento:
+${asesoramiento}
+      `;
+
+      const telefono = "34TU_NUMERO_AQUI"; // cambia esto
+      const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, "_blank");
     });
   </script>
 
