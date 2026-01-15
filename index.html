@@ -13,19 +13,19 @@
     <h1>Pedido Oriflame 🛍️</h1>
     <p class="subtitulo">Formulario de pedido y asesoramiento personalizado</p>
 
-    <!-- BENEFICIOS -->
+    <!-- BENEFICIOS MEMBER -->
     <div class="beneficios">
       <h2>✨ Beneficios por ser Member</h2>
       <ul>
         <li>🎁 <strong>15% de descuento</strong> de bienvenida</li>
-        <li>💸 Cashback en tus compras</li>
+        <li>🚚 Envío gratis en productos seleccionados</li>
+        <li>💸 <strong>15% de Cashback</strong> en tus compras</li>
         <li>🤍 Acceso a ofertas y promociones especiales</li>
-        <li>📦 Pedidos gestionados directamente conmigo</li>
       </ul>
     </div>
 
     <!-- FORMULARIO -->
-    <form>
+    <form id="pedidoForm">
 
       <label>Nombre y apellidos *</label>
       <input type="text" required>
@@ -46,14 +46,18 @@
       <input type="text" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
       <!-- PRODUCTOS -->
-      <h2 class="productos-titulo">🛒 Productos</h2>
+      <h3 class="productos-titulo">🛒 Productos</h3>
 
-      <div class="producto">
-        <input type="text" placeholder="Nombre del producto">
-        <input type="number" placeholder="Cantidad">
+      <div id="productos">
+        <div class="producto">
+          <input type="text" placeholder="Nombre del producto">
+          <input type="number" placeholder="Cantidad">
+        </div>
       </div>
 
-      <button type="button" class="btn-anadir">➕ Añadir otro producto</button>
+      <button type="button" class="btn-secundario" onclick="agregarProducto()">
+        ➕ Añadir otro producto
+      </button>
 
       <label>¿Necesitas asesoramiento? (Opcional)</label>
       <textarea placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
@@ -61,24 +65,41 @@
       <div class="privacidad">
         <input type="checkbox" required>
         <span>
-          He leído y acepto la política de privacidad.<br>
+          He leído y acepto la política de privacidad.  
           Los datos se usarán únicamente para gestionar tu pedido y ofrecerte asesoramiento personalizado como consultora Oriflame.
         </span>
       </div>
 
+      <!-- BOTÓN HACER PEDIDO (NO TOCADO) -->
+      <button type="submit" class="btn-principal">
+        Enviar pedido por WhatsApp
+      </button>
+
     </form>
 
-    <!-- BOTÓN WHATSAPP -->
-    <div class="whatsapp-asesoria">
-      <a
-        href="https://wa.me/34610274439?text=Hola,%20quiero%20asesoramiento%20personalizado%20sobre%20productos%20Oriflame"
-        target="_blank"
-        class="btn-whatsapp"
-      >
-        💬 Contactar por WhatsApp para asesoramiento
-      </a>
-    </div>
+    <!-- BOTÓN WHATSAPP ASESORAMIENTO -->
+    <a
+      href="https://wa.me/34610274439"
+      target="_blank"
+      class="btn-whatsapp"
+    >
+      💬 Contactar por WhatsApp para asesoramiento
+    </a>
 
   </div>
+
+  <script>
+    function agregarProducto() {
+      const contenedor = document.getElementById("productos");
+      const div = document.createElement("div");
+      div.className = "producto";
+      div.innerHTML = `
+        <input type="text" placeholder="Nombre del producto">
+        <input type="number" placeholder="Cantidad">
+      `;
+      contenedor.appendChild(div);
+    }
+  </script>
+
 </body>
 </html>
