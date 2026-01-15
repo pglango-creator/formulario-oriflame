@@ -7,6 +7,7 @@ body {
   background: #fdecef;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* 🔑 clave para iPhone */
 }
 
 .container {
@@ -14,6 +15,7 @@ body {
   margin: auto;
   padding: 20px;
   background: #fdecef;
+  overflow-x: hidden; /* 🔑 evita columna lateral en Safari */
 }
 
 h1 {
@@ -81,28 +83,34 @@ textarea {
   font-size: 14px;
 }
 
-/* 🔴 AQUÍ ESTÁ EL ARREGLO DEFINITIVO PARA IPHONE */
+/* ✅ PRIVACIDAD – FIX REAL PARA IPHONE */
 .privacy {
   display: flex;
+  flex-direction: row;          /* 🔑 fuerza fila */
   align-items: flex-start;
   gap: 10px;
   margin-top: 20px;
   width: 100%;
-  box-sizing: border-box;
+  max-width: 100%;               /* 🔑 crítico */
+  overflow: hidden;              /* 🔑 evita fuga lateral */
 }
 
 .privacy input {
-  margin-top: 3px;
   flex-shrink: 0;
+  margin-top: 4px;
 }
 
 .privacy span {
   display: block;
   width: 100%;
+  max-width: 100%;               /* 🔑 */
+  white-space: normal;           /* 🔑 */
+  word-break: break-word;        /* 🔑 */
+  overflow-wrap: break-word;     /* 🔑 */
   line-height: 1.4;
 }
 
-/* 🔽 BOTONES */
+/* 🔽 BOTONES (SIN CAMBIOS VISUALES) */
 .send-btn {
   margin-top: 25px;
   width: 100%;
