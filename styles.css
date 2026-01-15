@@ -1,74 +1,50 @@
-/* RESET CRÍTICO PARA ANDROID */
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  overflow-x: hidden;
+body {
+  background: #fdecec;
+  font-family: 'Arial', sans-serif;
   margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #fdecef;
+  padding: 20px;
 }
 
-/* CONTENEDOR */
 .container {
-  max-width: 480px;
-  width: 100%;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: auto;
   background: #fff;
   padding: 20px;
-  border-radius: 16px;
+  border-radius: 20px;
 }
 
-/* TEXTOS */
 h1 {
   text-align: center;
 }
 
-.subtitle {
+.subtitulo {
   text-align: center;
   color: #777;
 }
 
-/* BENEFICIOS */
 .beneficios {
-  background: #fff0f4;
+  background: #fff1f5;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 15px;
   margin-bottom: 20px;
 }
 
-.beneficios ul {
-  padding-left: 18px;
-}
-
-/* FORMULARIO */
 label {
   display: block;
-  margin-top: 14px;
-  font-weight: 600;
+  margin-top: 15px;
 }
 
-input,
-textarea {
+input, textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 6px;
+  padding: 12px;
   border-radius: 12px;
   border: 1px solid #ddd;
+  margin-top: 5px;
 }
 
-textarea {
-  resize: none;
-  height: 80px;
-}
-
-/* PRODUCTOS */
 .producto {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   margin-top: 10px;
 }
 
@@ -77,74 +53,52 @@ textarea {
 }
 
 .eliminar {
-  background: #ffe1e6;
+  background: #ffd6d6;
   border: none;
-  border-radius: 10px;
-  padding: 0 10px;
+  border-radius: 12px;
+  padding: 10px;
   cursor: pointer;
 }
 
 .add {
-  margin-top: 10px;
-  background: #ffd1dc;
-  border: none;
-  padding: 10px;
-  border-radius: 12px;
   width: 100%;
+  background: #ffd6e0;
+  border: none;
+  border-radius: 15px;
+  padding: 12px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
-/* INFO */
 .info {
-  margin-top: 14px;
-  font-size: 14px;
+  margin-top: 15px;
 }
 
-/* ✅ PRIVACIDAD — FIX REAL */
 .privacidad {
   display: flex;
-  align-items: flex-start;
   gap: 10px;
-  font-size: 13px;
-  margin-top: 16px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  align-items: flex-start;
+}
+
+.enviar {
   width: 100%;
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
-
-.privacidad input {
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-.privacidad span {
-  display: block;
-  line-height: 1.4;
-  max-width: 100%;
-  white-space: normal;
-}
-
-/* BOTONES */
-.btn-pedido {
-  margin-top: 18px;
-  background: #ff7a90;
-  color: white;
+  background: #ff7f95;
+  color: #fff;
   border: none;
-  padding: 14px;
-  border-radius: 14px;
-  width: 100%;
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 20px;
   font-size: 16px;
 }
 
-.btn-asesoramiento {
+.contactar {
   display: block;
-  margin-top: 14px;
   text-align: center;
   background: #2ecc71;
-  color: white;
+  color: #fff;
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 15px;
   text-decoration: none;
-  padding: 14px;
-  border-radius: 14px;
-  font-size: 16px;
 }
