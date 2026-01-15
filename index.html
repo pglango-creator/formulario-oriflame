@@ -48,10 +48,6 @@
       margin-bottom: 20px;
     }
 
-    .beneficios li {
-      margin-bottom: 6px;
-    }
-
     .producto {
       background: #fafafa;
       padding: 18px 15px 15px;
@@ -61,7 +57,6 @@
       position: relative;
     }
 
-    /* BOTÓN ELIMINAR VISIBLE */
     .eliminar {
       position: absolute;
       top: -14px;
@@ -77,7 +72,6 @@
       font-size: 20px;
       line-height: 36px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
 
     label {
@@ -95,9 +89,7 @@
       font-size: 14px;
     }
 
-    textarea {
-      resize: vertical;
-    }
+    textarea { resize: vertical; }
 
     .nota {
       font-size: 13px;
@@ -117,7 +109,6 @@
       font-weight: bold;
       margin-top: 12px;
       width: 100%;
-      cursor: pointer;
     }
 
     .boton {
@@ -130,15 +121,6 @@
       border-radius: 14px;
       cursor: pointer;
       margin-top: 20px;
-    }
-
-    .privacidad {
-      font-size: 12px;
-      color: #555;
-      margin-top: 20px;
-      background: #f9f9f9;
-      padding: 12px;
-      border-radius: 10px;
     }
 
     .confirmacion {
@@ -164,63 +146,51 @@
     <h2>🌟 Ventajas de ser Member Oriflame</h2>
     <ul>
       <li>✔️ 15% de descuento de bienvenida</li>
-      <li>✔️ 15% de cashback en cada compra</li>
+      <li>✔️ 15% de cashback</li>
       <li>✔️ Promociones exclusivas</li>
-      <li>✔️ Recompensas por recomendar</li>
       <li>✔️ Asesoramiento sin coste</li>
       <li>✔️ Sin permanencia</li>
     </ul>
   </div>
 
-  <form onsubmit="confirmarEnvio(event)">
+  <form onsubmit="enviarWhatsApp(event)">
 
     <h2>Datos del cliente</h2>
 
-    <label>Nombre y apellidos *</label>
+    <label>Nombre *</label>
     <input type="text" id="nombre" required>
 
     <label>Dirección *</label>
     <input type="text" id="direccion" required>
 
     <label>Código postal *</label>
-    <input type="text" id="cp" pattern="[0-9]{5}" required>
+    <input type="text" id="cp" required>
 
     <label>Email *</label>
     <input type="email" id="email" required>
 
     <label>Teléfono *</label>
-    <input type="tel" id="telefono" pattern="[0-9]{9}" required>
+    <input type="tel" id="telefono" required>
 
     <h2>Productos</h2>
 
     <div id="productos">
       <div class="producto">
-        <!-- el primero NO tiene botón eliminar -->
-        <label>Código del producto *</label>
+        <label>Código *</label>
         <input type="text" class="codigo" required>
-
         <label>Cantidad *</label>
         <input type="number" class="cantidad" min="1" required>
       </div>
     </div>
 
-    <button type="button" class="btn-secundario" onclick="agregarProducto()">
-      ➕ Añadir otro producto
-    </button>
+    <button type="button" class="btn-secundario" onclick="agregarProducto()">➕ Añadir otro producto</button>
 
     <h2>Asesoramiento (opcional)</h2>
-    <textarea id="asesoramiento" rows="4"></textarea>
-
-    <div class="privacidad">
-      <label>
-        <input type="checkbox" required>
-        He leído y acepto la política de privacidad.
-      </label>
-    </div>
+    <textarea id="asesoramiento"></textarea>
 
     <div class="nota">
-      📌 Si solicitas asesoramiento me pondré en contacto contigo lo antes posible.<br><br>
-      Si realizas un pedido, te contactaré para confirmar importe total y forma de pago antes del envío.
+      📌 Si solicitas asesoramiento me pondré en contacto contigo lo antes posible.  
+      Si realizas un pedido, te contactaré para confirmar el pago antes del envío.
     </div>
 
     <button class="boton" type="submit">Enviar pedido</button>
@@ -228,9 +198,7 @@
   </form>
 
   <div class="confirmacion" id="confirmacion">
-    ✅ Pedido preparado correctamente.<br><br>
-    Se abrirá WhatsApp con tu solicitud ya redactada.  
-    Me pondré en contacto contigo lo antes posible 💚
+    ✅ Pedido preparado. Se abrirá WhatsApp para enviarlo.
   </div>
 
 </div>
@@ -241,8 +209,8 @@ function agregarProducto() {
   const div = document.createElement("div");
   div.className = "producto";
   div.innerHTML = `
-    <button type="button" class="eliminar" onclick="eliminarProducto(this)">×</button>
-    <label>Código del producto *</label>
+    <button type="button" class="eliminar" onclick="this.parentElement.remove()">×</button>
+    <label>Código *</label>
     <input type="text" class="codigo" required>
     <label>Cantidad *</label>
     <input type="number" class="cantidad" min="1" required>
@@ -250,17 +218,9 @@ function agregarProducto() {
   cont.appendChild(div);
 }
 
-function eliminarProducto(btn) {
-  btn.parentElement.remove();
-}
-
-function confirmarEnvio(e) {
+function enviarWhatsApp(e) {
   e.preventDefault();
-  document.getElementById("confirmacion").style.display = "block";
-  setTimeout(enviarWhatsApp, 1200);
-}
 
-function enviarWhatsApp() {
   let productosTexto = "";
   document.querySelectorAll(".producto").forEach((p, i) => {
     productosTexto += `${i + 1}. ${p.querySelector(".codigo").value} x ${p.querySelector(".cantidad").value}\n`;
@@ -276,10 +236,10 @@ function enviarWhatsApp() {
     `🛍 Productos:\n${productosTexto}\n` +
     (asesoramiento.value ? `💬 Asesoramiento:\n${asesoramiento.value}` : '');
 
-  window.open(
-    `https://wa.me/34610274439?text=${encodeURIComponent(mensaje)}`,
-    "_blank"
-  );
+  document.getElementById("confirmacion").style.display = "block";
+
+  window.location.href =
+    `https://wa.me/34610274439?text=${encodeURIComponent(mensaje)}`;
 }
 </script>
 
