@@ -1,5 +1,5 @@
 /* =========================
-   RESET GENERAL
+   RESET
    ========================= */
 * {
   box-sizing: border-box;
@@ -8,25 +8,17 @@
 body {
   margin: 0;
   font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
-  background-color: #ffffff;
+  background-color: #fdecee;
   color: #333;
 }
 
 /* =========================
-   ESTRUCTURA GENERAL
+   FORMULARIO
    ========================= */
 form {
   max-width: 720px;
   margin: auto;
   padding: 16px;
-}
-
-h1, h2, h3 {
-  font-weight: normal;
-}
-
-ul {
-  padding-left: 20px;
 }
 
 label {
@@ -44,7 +36,7 @@ textarea {
   width: 100%;
   padding: 12px 14px;
   margin-bottom: 14px;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid #ccc;
   font-size: 16px;
   font-family: inherit;
@@ -59,103 +51,95 @@ textarea {
 }
 
 /* =========================
-   BOTONES GENERALES
-   ========================= */
-button,
-input[type="submit"] {
-  background-color: #25d366;
-  color: #ffffff;
-  padding: 14px 20px;
-  border-radius: 18px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* =========================
-   PRODUCTOS (ANDROID OK)
+   PRODUCTOS — LAYOUT CORRECTO
+   (EL QUE SE VEÍA BIEN EN ANDROID)
    ========================= */
 .producto-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 80px 48px;
+  gap: 10px;
   align-items: center;
-  gap: 8px;
   margin-bottom: 12px;
 }
 
 .producto-item input {
-  flex: 1;
+  margin-bottom: 0;
 }
 
+/* Botón papelera */
 .producto-item button {
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background-color: #f8b6be;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  padding: 0;
 }
 
 /* =========================
    BOTÓN AÑADIR PRODUCTO
    ========================= */
 .boton-add {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #25d366;
-  color: #ffffff;
-  padding: 14px 20px;
-  border-radius: 18px;
-  font-size: 16px;
+  width: 100%;
+  background-color: #ffd6dc;
+  color: #333;
+  padding: 16px;
+  border-radius: 20px;
   border: none;
+  font-size: 18px;
+  margin: 10px 0 20px;
 }
 
 /* =========================
-   LINKS WHATSAPP COMO BOTÓN
+   BOTONES PRINCIPALES
    ========================= */
-a.boton-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #25d366;
-  color: #ffffff;
-  padding: 14px 20px;
-  border-radius: 18px;
-  text-decoration: none;
-  font-size: 16px;
+.boton-enviar {
+  width: 100%;
+  background-color: #ff8fa3;
+  color: #fff;
+  padding: 18px;
+  border-radius: 26px;
+  border: none;
+  font-size: 18px;
   margin-top: 10px;
 }
 
-/* =========================
-   PRIVACIDAD (GENERAL)
-   ========================= */
-input[type="checkbox"] {
-  margin-right: 8px;
+a.boton-whatsapp {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 18px;
+  border-radius: 26px;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 12px;
 }
 
+/* =========================
+   PRIVACIDAD
+   ========================= */
 .privacidad {
   font-size: 14px;
   line-height: 1.4;
 }
 
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
 /* =========================
-   FIX EXCLUSIVO iPHONE
-   SOLO CHECKBOX PRIVACIDAD
+   FIX SOLO iPHONE
+   (NO TOCA ANDROID)
    ========================= */
 @supports (-webkit-touch-callout: none) {
-
   input[type="checkbox"] {
     -webkit-appearance: checkbox;
     appearance: checkbox;
-    width: auto;
-    height: auto;
-    margin-right: 8px;
   }
-
-  .privacidad {
-    font-family: inherit;
-  }
-
 }
