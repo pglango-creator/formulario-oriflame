@@ -1,99 +1,115 @@
 * {
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f5f5;
-  color: #333;
+  background: #f6f6f6;
 }
 
 .container {
-  max-width: 420px;
-  margin: 20px auto;
+  max-width: 480px;
+  margin: 0 auto;
   background: #ffffff;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 16px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
-.intro {
+.sub {
   text-align: center;
-  font-size: 0.95rem;
+  color: #555;
   margin-bottom: 20px;
 }
 
 label {
-  font-weight: 600;
-  margin-top: 12px;
   display: block;
+  margin-top: 12px;
+  font-weight: 600;
 }
 
 input,
 textarea {
   width: 100%;
   padding: 10px;
-  margin-top: 6px;
-  border-radius: 8px;
+  margin-top: 4px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
 textarea {
-  min-height: 90px;
+  resize: vertical;
+  min-height: 80px;
 }
 
-button {
+h3 {
+  margin-top: 20px;
+}
+
+.producto {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.producto input {
+  flex: 1;
+}
+
+.producto button {
+  background: #eee;
+  border: none;
+  padding: 0 10px;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+.add {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #ddd;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.enviar {
   margin-top: 20px;
   width: 100%;
   padding: 14px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 10px;
-  background: #7b1fa2;
+  background: #25d366;
   color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
   font-weight: bold;
 }
 
-button:hover {
-  opacity: 0.9;
-}
-
-.box {
-  background: #f7f7f7;
+#enlaceWA {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  background: #128c7e;
+  color: white;
   padding: 12px;
-  border-radius: 10px;
-  margin-top: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.highlight {
-  background: #f3e5f5;
-  border: 1px solid #e1bee7;
+.hidden {
+  display: none;
 }
 
-ul {
-  padding-left: 18px;
-}
-
-.checkbox {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-weight: normal;
-}
-
-.small {
-  font-size: 0.85rem;
+.nota {
+  margin-top: 14px;
+  font-size: 14px;
   color: #555;
-  margin-top: 6px;
-}
-
-.privacy {
-  margin-top: 15px;
+  text-align: center;
 }
