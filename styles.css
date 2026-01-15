@@ -1,76 +1,113 @@
 /* =========================
-   ESTILOS GENERALES
+   RESET BÁSICO
    ========================= */
-
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'TuFuente', Arial, sans-serif;
-  background-color: #f5f5f5;
+  font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
+  background-color: #ffffff;
   color: #333;
 }
 
-input,
-textarea,
-select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+/* =========================
+   TÍTULOS Y TEXTO
+   ========================= */
+h1, h2, h3 {
+  font-weight: normal;
 }
 
-button,
-input[type="submit"],
-a.boton {
-  background-color: #000;
-  color: #fff;
-  padding: 14px 20px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  text-decoration: none;
+ul {
+  padding-left: 20px;
 }
-
-
 
 /* =========================
-   FIX SOLO PARA iPHONE (Safari iOS)
+   FORMULARIO
+   ========================= */
+form {
+  max-width: 700px;
+  margin: auto;
+  padding: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* =========================
+   INPUTS NORMALES
+   ========================= */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+/* =========================
+   TEXTAREA
+   ========================= */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+button,
+input[type="submit"] {
+  background-color: #25d366;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 18px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* =========================
+   CHECKBOX PRIVACIDAD (GENERAL)
+   ========================= */
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* =========================
+   TEXTO PRIVACIDAD
+   ========================= */
+.privacidad {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* =========================
+   FIX EXCLUSIVO iPHONE (SOLO PRIVACIDAD)
    NO AFECTA ANDROID
    ========================= */
-
 @supports (-webkit-touch-callout: none) {
 
-  body,
-  input,
-  textarea,
-  button {
+  /* SOLO el checkbox */
+  input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    appearance: checkbox;
+    width: auto;
+    height: auto;
+    margin-right: 8px;
+  }
+
+  /* SOLO el texto asociado */
+  .privacidad {
     font-family: inherit;
-  }
-
-  input,
-  textarea,
-  select,
-  button,
-  a {
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 12px;
-  }
-
-  button,
-  input[type="submit"],
-  a.boton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px; /* obligatorio iOS */
-    opacity: 1 !important;
-    visibility: visible !important;
   }
 
 }
