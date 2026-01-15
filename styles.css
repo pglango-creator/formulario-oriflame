@@ -1,66 +1,58 @@
-/* RESET BÁSICO */
 * {
   box-sizing: border-box;
-  font-family: 'Comic Sans MS', 'Arial', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* FONDO */
 body {
   margin: 0;
   padding: 0;
   background: #fdebed;
 }
 
-/* CONTENEDOR */
-.container,
-.recipiente {
-  max-width: 480px;
+.container {
+  max-width: 500px;
   margin: 0 auto;
-  background: #ffffff;
   padding: 20px;
-  border-radius: 20px;
 }
 
-/* TÍTULOS */
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+}
+
 h1 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 5px;
 }
 
-.subtitular {
+.subtitle {
   text-align: center;
-  color: #888;
+  color: #777;
   margin-bottom: 20px;
 }
 
-h2 {
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-/* CAJA BENEFICIOS */
-.casilla-miembro {
-  background: #fdebed;
-  padding: 15px;
+.benefits {
+  background: #ffeef3;
   border-radius: 15px;
+  padding: 15px;
   margin-bottom: 20px;
 }
 
-.casilla-miembro ul {
+.benefits h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.benefits ul {
   padding-left: 20px;
-  margin: 0;
 }
 
-.casilla-miembro li {
-  margin-bottom: 8px;
-}
-
-/* CAMPOS */
 label {
-  font-weight: bold;
   display: block;
   margin-top: 15px;
+  font-weight: 600;
 }
 
 input,
@@ -68,83 +60,85 @@ textarea {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   margin-top: 5px;
   font-size: 16px;
 }
 
-/* PRODUCTOS */
-.producto {
+textarea {
+  resize: vertical;
+}
+
+.products {
+  margin-top: 10px;
+}
+
+.product-row {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
 }
 
-.producto input {
+.product-row input {
   flex: 1;
 }
 
-/* BOTÓN AÑADIR PRODUCTO */
-.btn-add {
-  background: #ffd6dc;
-  border: none;
-  padding: 12px;
+.add-product {
   width: 100%;
-  border-radius: 25px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #ffd1dc;
   font-size: 16px;
-  margin-top: 10px;
   cursor: pointer;
 }
 
-/* MENSAJES INFO */
-.info {
+.info-text {
   margin-top: 15px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
-/* PRIVACIDAD – FIX iPHONE (AQUÍ ESTÁ LA CLAVE) */
-.privacidad,
-.checkbox-privacidad {
+.privacy {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin: 20px 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.privacidad input[type="checkbox"],
-.checkbox-privacidad input[type="checkbox"] {
+.privacy input {
+  width: 20px;
+  height: 20px;
   margin-top: 4px;
   flex-shrink: 0;
 }
 
-.privacidad label,
-.checkbox-privacidad label {
+.privacy label {
+  margin: 0;
+  font-size: 14px;
   line-height: 1.4;
-  font-weight: normal;
 }
 
-/* BOTÓN ENVIAR */
-.btn-enviar {
-  background: #ff7a8a;
+button.submit {
+  width: 100%;
+  background: #ff7b9c;
   color: #fff;
   border: none;
   padding: 15px;
-  width: 100%;
-  border-radius: 30px;
-  font-size: 18px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-/* BOTÓN WHATSAPP */
-.btn-whatsapp {
-  background: #25d366;
-  color: #fff;
-  border: none;
-  padding: 15px;
-  width: 100%;
   border-radius: 30px;
   font-size: 18px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+a.whatsapp {
+  display: block;
+  text-align: center;
+  background: #25d366;
+  color: #fff;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 18px;
+  margin-top: 15px;
+  text-decoration: none;
 }
