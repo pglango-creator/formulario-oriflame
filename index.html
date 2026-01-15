@@ -6,144 +6,59 @@
   <title>Pedido Oriflame</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="container">
 
-    <h1>Pedido Oriflame 🛍️</h1>
-    <p class="subtitulo">Formulario de pedido y asesoramiento personalizado</p>
+<div class="container">
 
-    <div class="beneficios">
-      <h2>✨ Beneficios por ser Member</h2>
-      <ul>
-        <li>🎁 15% de descuento de bienvenida</li>
-        <li>💸 15% de cashback en tus compras</li>
-        <li>🤍 Acceso a ofertas y promociones especiales</li>
-        <li>🚚 Envío gratis en productos seleccionados</li>
-      </ul>
-    </div>
+  <h1>Pedido Oriflame 🛍️</h1>
 
-    <form id="pedidoForm">
+  <label>Email *</label>
+  <input type="email" required>
 
-      <label>Nombre y apellidos *</label>
-      <input type="text" id="nombre" required>
+  <label>Teléfono *</label>
+  <input type="tel" required>
 
-      <label>Dirección *</label>
-      <input type="text" id="direccion" required>
+  <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
+  <input type="text" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
-      <label>Código Postal *</label>
-      <input type="text" id="cp" required>
+  <h2 class="products-title">🛒 Productos</h2>
 
-      <label>Email *</label>
-      <input type="email" id="email" required>
-
-      <label>Teléfono *</label>
-      <input type="tel" id="telefono" required>
-
-      <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
-      <input type="text" id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
-
-      <h2>🛒 Productos</h2>
-
-      <div id="productos">
-        <div class="producto">
-          <input type="text" class="producto-nombre" placeholder="Nombre o código del producto">
-          <input type="number" class="producto-cantidad" placeholder="1" min="1">
-          <button type="button" class="eliminar">🗑️</button>
-        </div>
-      </div>
-
-      <button type="button" class="add" onclick="añadirProducto()">＋ Añadir otro producto</button>
-
-      <label>¿Necesitas asesoramiento? (Opcional)</label>
-      <textarea id="asesoramiento" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
-
-      <p class="info">
-        📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
-        📦 Si realizas un pedido, te escribiré para confirmar disponibilidad, precio y forma de pago.
-      </p>
-
-      <div class="privacidad">
-        <input type="checkbox" id="privacidad" required>
-        <span>
-          He leído y acepto la política de privacidad. Los datos se usarán únicamente para gestionar el pedido y el asesoramiento.
-        </span>
-      </div>
-
-      <button type="button" class="enviar" onclick="enviarWhatsApp()">
-        Enviar pedido por WhatsApp
-      </button>
-
-      <a class="contactar" href="https://wa.me/34610274439?text=Hola,%20%C2%BFpuedes%20asesorarme%3F" target="_blank">
-        💬 Contactar por WhatsApp para asesoramiento
-      </a>
-
-    </form>
+  <div class="product-row">
+    <input type="text" placeholder="Nombre o código del producto">
+    <input type="number" value="1" min="1">
+    <button class="remove-btn">🗑️</button>
   </div>
 
-  <script>
-    function añadirProducto() {
-      const contenedor = document.getElementById("productos");
-      const div = document.createElement("div");
-      div.className = "producto";
-      div.innerHTML = `
-        <input type="text" class="producto-nombre" placeholder="Nombre o código del producto">
-        <input type="number" class="producto-cantidad" placeholder="1" min="1">
-        <button type="button" class="eliminar">🗑️</button>
-      `;
-      contenedor.appendChild(div);
+  <button class="add-product">+ Añadir otro producto</button>
 
-      div.querySelector(".eliminar").onclick = () => div.remove();
-    }
+  <label>¿Necesitas asesoramiento? (Opcional)</label>
+  <textarea placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
 
-    document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("eliminar")) {
-        e.target.parentElement.remove();
-      }
-    });
+  <div class="info-text">
+    📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
+    📦 Si realizas un pedido, te escribiré para confirmar disponibilidad, precio y forma de pago.
+  </div>
 
-    function enviarWhatsApp() {
-      if (!document.getElementById("privacidad").checked) {
-        alert("Debes aceptar la política de privacidad.");
-        return;
-      }
+  <!-- PRIVACIDAD (ESTRUCTURA CLARA Y ESTABLE) -->
+  <label class="privacy">
+    <input type="checkbox" required>
+    <span>
+      He leído y acepto la política de privacidad.  
+      Los datos se usarán únicamente para gestionar el pedido y el asesoramiento.
+    </span>
+  </label>
 
-      const nombre = document.getElementById("nombre").value;
-      const direccion = document.getElementById("direccion").value;
-      const cp = document.getElementById("cp").value;
-      const email = document.getElementById("email").value;
-      const telefono = document.getElementById("telefono").value;
-      const horario = document.getElementById("horario").value;
-      const asesoramiento = document.getElementById("asesoramiento").value;
+  <button class="send-btn">Enviar pedido por WhatsApp</button>
 
-      let mensaje = `🛍️ *Nuevo pedido Oriflame*%0A%0A`;
-      mensaje += `👤 Nombre: ${nombre}%0A`;
-      mensaje += `🏠 Dirección: ${direccion}%0A`;
-      mensaje += `📮 CP: ${cp}%0A`;
-      mensaje += `📧 Email: ${email}%0A`;
-      mensaje += `📞 Teléfono: ${telefono}%0A`;
+  <a
+    class="contact-btn"
+    href="https://wa.me/34610274439?text=Hola,%20¿puedes%20asesorarme?"
+    target="_blank"
+  >
+    💬 Contactar por WhatsApp para asesoramiento
+  </a>
 
-      if (horario) {
-        mensaje += `⏰ Horario preferido: ${horario}%0A`;
-      }
-
-      mensaje += `%0A🛒 *Productos:*%0A`;
-
-      document.querySelectorAll(".producto").forEach((prod, i) => {
-        const nombreProd = prod.querySelector(".producto-nombre").value;
-        const cantidadProd = prod.querySelector(".producto-cantidad").value;
-        if (nombreProd) {
-          mensaje += `- ${nombreProd} x ${cantidadProd}%0A`;
-        }
-      });
-
-      if (asesoramiento) {
-        mensaje += `%0A💬 Asesoramiento:%0A${asesoramiento}`;
-      }
-
-      window.location.href = `https://wa.me/34610274439?text=${mensaje}`;
-    }
-  </script>
+</div>
 
 </body>
-        </html>
+</html>
