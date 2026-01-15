@@ -8,132 +8,78 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="contenedor">
 
     <h1>Pedido Oriflame 🛍️</h1>
-    <p class="subtitle">Formulario de pedido y asesoramiento personalizado</p>
+    <p class="subtitulo">Formulario de pedido y asesoramiento personalizado</p>
 
-    <!-- BENEFICIOS MEMBER -->
-    <div class="member-box">
+    <!-- BENEFICIOS -->
+    <div class="beneficios">
       <h2>✨ Beneficios por ser Member</h2>
       <ul>
-        <li>🎁 <strong>15% de descuento de bienvenida</strong> en tu primer pedido</li>
-        <li>💸 <strong>15% de cashback</strong> en todas tus compras</li>
+        <li>🎁 <strong>15% de descuento</strong> de bienvenida</li>
+        <li>💸 Cashback en tus compras</li>
         <li>🤍 Acceso a ofertas y promociones especiales</li>
         <li>📦 Pedidos gestionados directamente conmigo</li>
       </ul>
     </div>
 
-    <!-- DATOS PERSONALES -->
-    <label>Nombre y apellidos *</label>
-    <input type="text" id="nombre" required>
+    <!-- FORMULARIO -->
+    <form>
 
-    <label>Dirección *</label>
-    <input type="text" id="direccion" required>
+      <label>Nombre y apellidos *</label>
+      <input type="text" required>
 
-    <label>Código Postal *</label>
-    <input type="text" id="cp" required>
+      <label>Dirección *</label>
+      <input type="text" required>
 
-    <label>Email *</label>
-    <input type="email" id="email" required>
+      <label>Código Postal *</label>
+      <input type="text" required>
 
-    <label>Teléfono *</label>
-    <input type="tel" id="telefono" required>
+      <label>Email *</label>
+      <input type="email" required>
 
-    <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
-    <input type="text" id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
+      <label>Teléfono *</label>
+      <input type="tel" required>
 
-    <!-- PRODUCTOS -->
-    <h2 class="section-title">🛒 Productos</h2>
+      <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
+      <input type="text" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
-    <div id="productos"></div>
+      <!-- PRODUCTOS -->
+      <h2 class="productos-titulo">🛒 Productos</h2>
 
-    <button type="button" class="add-btn" onclick="añadirProducto()">➕ Añadir otro producto</button>
+      <div class="producto">
+        <input type="text" placeholder="Nombre del producto">
+        <input type="number" placeholder="Cantidad">
+      </div>
 
-    <!-- ASESORAMIENTO -->
-    <label>¿Necesitas asesoramiento? (Opcional)</label>
-    <textarea id="asesoramiento" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
+      <button type="button" class="btn-anadir">➕ Añadir otro producto</button>
 
-    <!-- PRIVACIDAD -->
-    <div class="privacy-box">
-      <input type="checkbox" id="privacidad" required>
-      <label for="privacidad">
-        He leído y acepto la política de privacidad.
-      </label>
+      <label>¿Necesitas asesoramiento? (Opcional)</label>
+      <textarea placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
 
-      <p class="privacy-text">
-        Los datos se usarán únicamente para gestionar tu pedido y ofrecerte asesoramiento personalizado como consultora Oriflame. No se cederán a terceros.
-      </p>
+      <div class="privacidad">
+        <input type="checkbox" required>
+        <span>
+          He leído y acepto la política de privacidad.<br>
+          Los datos se usarán únicamente para gestionar tu pedido y ofrecerte asesoramiento personalizado como consultora Oriflame.
+        </span>
+      </div>
+
+    </form>
+
+    <!-- BOTÓN WHATSAPP -->
+    <div class="whatsapp-asesoria">
+      <a
+        href="https://wa.me/34610274439?text=Hola,%20quiero%20asesoramiento%20personalizado%20sobre%20productos%20Oriflame"
+        target="_blank"
+        class="btn-whatsapp"
+      >
+        💬 Contactar por WhatsApp para asesoramiento
+      </a>
     </div>
-
-    <!-- AVISOS -->
-    <div class="info-box">
-      📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
-      📦 Si realizas un pedido, te escribiré para confirmar disponibilidad y forma de pago.
-    </div>
-
-    <!-- BOTÓN -->
-    <button class="main-btn" onclick="prepararPedido()">Preparar pedido</button>
-
-    <a id="enlaceWA" class="wa-btn hidden" target="_blank">Abrir WhatsApp</a>
 
   </div>
-
-<script>
-let contador = 0;
-
-function añadirProducto() {
-  contador++;
-  const div = document.createElement("div");
-  div.className = "producto";
-  div.innerHTML = `
-    <input type="text" placeholder="Código del producto" class="codigo">
-    <input type="number" placeholder="Cantidad" class="cantidad" min="1" value="1">
-    <button type="button" class="delete-btn" onclick="this.parentElement.remove()">🗑️</button>
-  `;
-  document.getElementById("productos").appendChild(div);
-}
-
-añadirProducto();
-
-function prepararPedido() {
-  if (!document.getElementById("privacidad").checked) {
-    alert("Debes aceptar la política de privacidad");
-    return;
-  }
-
-  const productos = document.querySelectorAll(".producto");
-  let textoProductos = "";
-
-  productos.forEach((p, i) => {
-    const codigo = p.querySelector(".codigo").value;
-    const cantidad = p.querySelector(".cantidad").value;
-    if (codigo) {
-      textoProductos += `\n- Código: ${codigo} | Cantidad: ${cantidad}`;
-    }
-  });
-
-  const mensaje =
-`🛍️ PEDIDO ORIFLAME
-
-👤 Nombre: ${nombre.value}
-🏠 Dirección: ${direccion.value}
-📮 CP: ${cp.value}
-📧 Email: ${email.value}
-📞 Teléfono: ${telefono.value}
-⏰ Horario contacto: ${horario.value || "No indicado"}
-
-🛒 Productos:${textoProductos || " No indicados"}
-
-💬 Asesoramiento:
-${asesoramiento.value || "No solicitado"}`;
-
-  const url = "https://api.whatsapp.com/send?phone=34610274439&text=" + encodeURIComponent(mensaje);
-  const enlace = document.getElementById("enlaceWA");
-  enlace.href = url;
-  enlace.classList.remove("hidden");
-}
-</script>
-
 </body>
-</html>
+          </html>
+          
