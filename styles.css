@@ -1,142 +1,82 @@
-/* RESET BÁSICO */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: "Comic Sans MS", system-ui, sans-serif;
+  font-family: Arial, sans-serif;
   background: #fdecef;
   padding: 20px;
-  color: #333;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .container {
   max-width: 600px;
   margin: auto;
-  background: #fff;
-  border-radius: 20px;
+  background: white;
   padding: 20px;
+  border-radius: 15px;
 }
 
-/* TÍTULOS */
-h1 {
+h1, .subtitle {
   text-align: center;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  text-align: center;
-  color: #777;
-  margin-bottom: 20px;
 }
 
 .section {
   background: #fff3f6;
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 
-/* INPUTS */
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-input,
-textarea {
+input, textarea {
   width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
-  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-/* PRODUCTOS */
-.product-row {
+.producto {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
 }
 
-.product-row input {
+.producto input {
   flex: 1;
 }
 
-.remove-btn {
-  background: #ff6b81;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 0 12px;
-  cursor: pointer;
-}
-
-/* BOTONES */
-button {
-  width: 100%;
-  padding: 14px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.add-product {
+button.add {
   background: #ffd6de;
-  color: #333;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100%;
 }
 
-.send-btn {
-  background: #ff7a90;
-  color: #fff;
+.info {
+  font-size: 14px;
+  margin: 15px 0;
 }
 
-.whatsapp-btn {
-  background: #25d366;
-  color: #fff;
+.privacidad {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
-/* TEXTO INFORMATIVO */
-.info-text {
-  font-size: 14px;
-  margin-top: 15px;
+button.pedido {
+  background: #ff7a90;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-.info-text p {
-  margin-bottom: 6px;
-}
-
-/* 🔴 PRIVACIDAD – AQUÍ ESTÁ LA CLAVE */
-.privacy-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.privacy-container input {
-  width: 20px;
-  height: 20px;
-  margin-top: 4px;
-}
-
-.privacy-container label {
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: normal;
-}
-
-/* RESPONSIVE (MÓVIL) */
-@media (max-width: 480px) {
-  .product-row {
-    flex-direction: column;
-  }
+a.whatsapp {
+  display: block;
+  background: #25d366;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 25px;
+  text-decoration: none;
 }
