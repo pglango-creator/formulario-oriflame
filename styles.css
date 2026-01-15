@@ -34,7 +34,8 @@ label {
   margin-top: 15px;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
@@ -74,13 +75,33 @@ input, textarea {
   margin-top: 15px;
 }
 
+/* =========================
+   PRIVACIDAD (ARREGLO iPHONE)
+   ========================= */
 .privacidad {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
   margin-top: 15px;
-  align-items: flex-start;
+  width: 100%;
 }
 
+.privacidad input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.privacidad span {
+  display: block;
+  width: 100%;
+  line-height: 1.4;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
 .enviar {
   width: 100%;
   background: #ff7f95;
@@ -90,6 +111,7 @@ input, textarea {
   padding: 15px;
   margin-top: 20px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .contactar {
