@@ -8,20 +8,22 @@
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <h1>Pedido Oriflame 🛍️</h1>
-    <p class="subtitle">Formulario de pedido y asesoramiento personalizado</p>
+  <h1>Pedido Oriflame 🛍️</h1>
+  <p class="subtitle">Formulario de pedido y asesoramiento personalizado</p>
 
-    <div class="beneficios">
-      <h2>✨ Beneficios por ser Member</h2>
-      <ul>
-        <li>🎁 15% de descuento de bienvenida</li>
-        <li>💸 15% de cashback en tus compras</li>
-        <li>🔥 Acceso a ofertas y promociones especiales</li>
-        <li>🚚 Envío gratis en productos seleccionados</li>
-      </ul>
-    </div>
+  <div class="beneficios">
+    <h2>✨ Beneficios por ser Member</h2>
+    <ul>
+      <li>🎁 15% de descuento de bienvenida</li>
+      <li>💸 15% de cashback en tus compras</li>
+      <li>🤍 Acceso a ofertas y promociones especiales</li>
+      <li>🚚 Envío gratis en productos seleccionados</li>
+    </ul>
+  </div>
+
+  <form id="pedidoForm">
 
     <label>Nombre y apellidos *</label>
     <input type="text" id="nombre" required>
@@ -38,102 +40,85 @@
     <label>Teléfono *</label>
     <input type="tel" id="telefono" required>
 
-    <!-- ✅ CAMPO AÑADIDO (EL ÚNICO CAMBIO) -->
     <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
-    <input
-      type="text"
-      id="horario"
-      placeholder="Ej: mañanas, tardes, a partir de las 18h"
-    >
+    <input type="text" id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
     <h3>🛒 Productos</h3>
 
     <div id="productos">
       <div class="producto">
-        <input type="text" placeholder="Nombre o código del producto">
-        <input type="number" value="1" min="1">
+        <input type="text" placeholder="Nombre o código del producto" class="producto-nombre">
+        <input type="number" value="1" min="1" class="producto-cantidad">
+        <button type="button" class="eliminar" onclick="eliminarProducto(this)">🗑️</button>
       </div>
     </div>
 
-    <button class="add" onclick="addProducto()">+ Añadir otro producto</button>
+    <button type="button" class="add" onclick="añadirProducto()">＋ Añadir otro producto</button>
 
     <label>¿Necesitas asesoramiento? (Opcional)</label>
-    <textarea
-      id="asesoramiento"
-      placeholder="Cuéntame en qué puedo ayudarte..."
-    ></textarea>
+    <textarea id="asesoramiento" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
 
     <div class="info">
-      📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
-      📦 Si realizas un pedido, te escribiré para confirmar disponibilidad, precio y forma de pago.
+      <p>📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.</p>
+      <p>📦 Si realizas un pedido, te escribiré para confirmar disponibilidad, precio y forma de pago.</p>
     </div>
 
     <div class="privacidad">
-      <input type="checkbox" id="privacidad" required>
-      <label for="privacidad">
-        He leído y acepto la política de privacidad.  
-        Los datos se usarán únicamente para gestionar el pedido y el asesoramiento.
-      </label>
+      <input type="checkbox" required>
+      <span>He leído y acepto la política de privacidad. Los datos se usarán únicamente para gestionar el pedido y el asesoramiento.</span>
     </div>
 
-    <button class="pedido" onclick="enviarPedido()">
-      Enviar pedido por WhatsApp
-    </button>
+    <button type="submit" class="btn-pedido">Enviar pedido por WhatsApp</button>
 
-    <a
-      class="whatsapp"
-      href="https://wa.me/34610274439"
-      target="_blank"
-    >
-      💬 Contactar por WhatsApp para asesoramiento
+    <a class="btn-asesoramiento"
+       href="https://wa.me/34610274439"
+       target="_blank">
+       💬 Contactar por WhatsApp para asesoramiento
     </a>
 
-  </div>
+  </form>
+</div>
 
 <script>
-function addProducto() {
+function añadirProducto() {
   const div = document.createElement("div");
   div.className = "producto";
   div.innerHTML = `
-    <input type="text" placeholder="Nombre o código del producto">
-    <input type="number" value="1" min="1">
+    <input type="text" placeholder="Nombre o código del producto" class="producto-nombre">
+    <input type="number" value="1" min="1" class="producto-cantidad">
+    <button type="button" class="eliminar" onclick="eliminarProducto(this)">🗑️</button>
   `;
   document.getElementById("productos").appendChild(div);
 }
 
-function enviarPedido() {
-  if (!document.getElementById("privacidad").checked) {
-    alert("Debes aceptar la política de privacidad");
-    return;
-  }
+function eliminarProducto(btn) {
+  btn.parentElement.remove();
+}
 
-  let mensaje = "📦 *Nuevo pedido Oriflame*%0A%0A";
-  mensaje += "*Nombre:* " + nombre.value + "%0A";
-  mensaje += "*Dirección:* " + direccion.value + "%0A";
-  mensaje += "*CP:* " + cp.value + "%0A";
-  mensaje += "*Email:* " + email.value + "%0A";
-  mensaje += "*Teléfono:* " + telefono.value + "%0A";
+document.getElementById("pedidoForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-  if (horario.value) {
-    mensaje += "*Horario de contacto:* " + horario.value + "%0A";
-  }
+  let mensaje = `Pedido Oriflame:%0A%0A`;
+  mensaje += `Nombre: ${nombre.value}%0A`;
+  mensaje += `Dirección: ${direccion.value}%0A`;
+  mensaje += `CP: ${cp.value}%0A`;
+  mensaje += `Email: ${email.value}%0A`;
+  mensaje += `Teléfono: ${telefono.value}%0A`;
+  if (horario.value) mensaje += `Horario preferido: ${horario.value}%0A`;
 
-  mensaje += "%0A*Productos:*%0A";
+  mensaje += `%0AProductos:%0A`;
   document.querySelectorAll(".producto").forEach(p => {
-    const n = p.children[0].value;
-    const c = p.children[1].value;
-    if (n) mensaje += "- " + n + " x" + c + "%0A";
+    const n = p.querySelector(".producto-nombre").value;
+    const c = p.querySelector(".producto-cantidad").value;
+    if (n) mensaje += `- ${n} x${c}%0A`;
   });
 
   if (asesoramiento.value) {
-    mensaje += "%0A*Asesoramiento:* " + asesoramiento.value;
+    mensaje += `%0AAsesoramiento:%0A${asesoramiento.value}`;
   }
 
-  window.open(
-    "https://wa.me/34610274439?text=" + mensaje,
-    "_blank"
-  );
-}
+  window.open(`https://wa.me/34610274439?text=${mensaje}`, "_blank");
+});
 </script>
 
 </body>
