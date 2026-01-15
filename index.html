@@ -28,30 +28,30 @@
     <form id="pedidoForm">
 
       <label>Nombre y apellidos *</label>
-      <input type="text" required>
+      <input id="nombre" type="text" required>
 
       <label>Dirección *</label>
-      <input type="text" required>
+      <input id="direccion" type="text" required>
 
       <label>Código Postal *</label>
-      <input type="text" required>
+      <input id="cp" type="text" required>
 
       <label>Email *</label>
-      <input type="email" required>
+      <input id="email" type="email" required>
 
       <label>Teléfono *</label>
-      <input type="tel" required>
+      <input id="telefono" type="tel" required>
 
       <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
-      <input type="text" placeholder="Ej: mañanas, tardes, a partir de las 18h">
+      <input id="horario" type="text" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
       <!-- PRODUCTOS -->
       <h3 class="productos-titulo">🛒 Productos</h3>
 
       <div id="productos">
         <div class="producto">
-          <input type="text" placeholder="Nombre o código del producto">
-          <input type="number" placeholder="Cantidad" min="1">
+          <input class="prod-nombre" type="text" placeholder="Nombre o código del producto">
+          <input class="prod-cantidad" type="number" placeholder="Cantidad" min="1" value="1">
           <button type="button" class="btn-eliminar" onclick="eliminarProducto(this)">✖</button>
         </div>
       </div>
@@ -61,7 +61,7 @@
       </button>
 
       <label>¿Necesitas asesoramiento? (Opcional)</label>
-      <textarea placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
+      <textarea id="asesoramiento" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
 
       <!-- TEXTO INFORMATIVO -->
       <p class="info">
@@ -77,7 +77,7 @@
         </span>
       </div>
 
-      <!-- BOTÓN PEDIDO (SIN CAMBIOS) -->
+      <!-- BOTÓN PEDIDO -->
       <button type="submit" class="btn-principal">
         Enviar pedido por WhatsApp
       </button>
@@ -95,7 +95,6 @@
 
   </div>
 
-  <!-- SCRIPT -->
   <script>
     function actualizarBotonesEliminar() {
       const productos = document.querySelectorAll(".producto");
@@ -110,8 +109,8 @@
       const div = document.createElement("div");
       div.className = "producto";
       div.innerHTML = `
-        <input type="text" placeholder="Nombre o código del producto">
-        <input type="number" placeholder="Cantidad" min="1">
+        <input class="prod-nombre" type="text" placeholder="Nombre o código del producto">
+        <input class="prod-cantidad" type="number" placeholder="Cantidad" min="1" value="1">
         <button type="button" class="btn-eliminar" onclick="eliminarProducto(this)">✖</button>
       `;
       contenedor.appendChild(div);
@@ -119,9 +118,7 @@
     }
 
     function eliminarProducto(boton) {
-      const confirmar = confirm("¿Seguro que quieres eliminar este producto?");
-      if (!confirmar) return;
-
+      if (!confirm("¿Seguro que quieres eliminar este producto?")) return;
       boton.parentElement.remove();
       actualizarBotonesEliminar();
     }
@@ -131,39 +128,35 @@
     document.getElementById("pedidoForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const inputs = this.querySelectorAll("input, textarea");
-      const productos = document.querySelectorAll(".producto");
-
       let mensaje = "🛍️ *NUEVO PEDIDO ORIFLAME*%0A%0A";
 
-      mensaje += "👤 *Nombre:* " + inputs[0].value + "%0A";
-      mensaje += "🏠 *Dirección:* " + inputs[1].value + "%0A";
-      mensaje += "📮 *Código Postal:* " + inputs[2].value + "%0A";
-      mensaje += "📧 *Email:* " + inputs[3].value + "%0A";
-      mensaje += "📱 *Teléfono:* " + inputs[4].value + "%0A";
+      mensaje += "👤 *Nombre:* " + document.getElementById("nombre").value + "%0A";
+      mensaje += "🏠 *Dirección:* " + document.getElementById("direccion").value + "%0A";
+      mensaje += "📮 *Código Postal:* " + document.getElementById("cp").value + "%0A";
+      mensaje += "📧 *Email:* " + document.getElementById("email").value + "%0A";
+      mensaje += "📱 *Teléfono:* " + document.getElementById("telefono").value + "%0A";
 
-      if (inputs[5].value.trim() !== "") {
-        mensaje += "⏰ *Horario de contacto:* " + inputs[5].value + "%0A";
+      const horario = document.getElementById("horario").value;
+      if (horario) {
+        mensaje += "⏰ *Horario de contacto:* " + horario + "%0A";
       }
 
       mensaje += "%0A🛒 *Productos:*%0A";
 
-      productos.forEach(p => {
-        const nombre = p.children[0].value;
-        const cantidad = p.children[1].value;
+      document.querySelectorAll(".producto").forEach(p => {
+        const nombre = p.querySelector(".prod-nombre").value;
+        const cantidad = p.querySelector(".prod-cantidad").value;
         if (nombre && cantidad) {
           mensaje += "• " + nombre + " (x" + cantidad + ")%0A";
         }
       });
 
-      const asesoramiento = inputs[inputs.length - 1].value;
-      if (asesoramiento.trim() !== "") {
+      const asesoramiento = document.getElementById("asesoramiento").value;
+      if (asesoramiento) {
         mensaje += "%0A💬 *Asesoramiento:*%0A" + asesoramiento;
       }
 
-      const telefono = "34610274439";
-      const url = "https://wa.me/" + telefono + "?text=" + mensaje;
-
+      const url = "https://wa.me/34610274439?text=" + mensaje;
       window.open(url, "_blank");
     });
   </script>
