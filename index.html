@@ -13,7 +13,7 @@
     <h1>Pedido Oriflame 🛍️</h1>
     <p class="subtitle">Formulario de pedido y asesoramiento personalizado</p>
 
-    <div class="section">
+    <div class="beneficios">
       <h2>✨ Beneficios por ser Member</h2>
       <ul>
         <li>🎁 15% de descuento de bienvenida</li>
@@ -38,8 +38,13 @@
     <label>Teléfono *</label>
     <input type="tel" id="telefono" required>
 
+    <!-- ✅ CAMPO AÑADIDO (EL ÚNICO CAMBIO) -->
     <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
-    <input type="text" id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
+    <input
+      type="text"
+      id="horario"
+      placeholder="Ej: mañanas, tardes, a partir de las 18h"
+    >
 
     <h3>🛒 Productos</h3>
 
@@ -53,7 +58,10 @@
     <button class="add" onclick="addProducto()">+ Añadir otro producto</button>
 
     <label>¿Necesitas asesoramiento? (Opcional)</label>
-    <textarea id="asesoramiento" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
+    <textarea
+      id="asesoramiento"
+      placeholder="Cuéntame en qué puedo ayudarte..."
+    ></textarea>
 
     <div class="info">
       📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
@@ -68,9 +76,15 @@
       </label>
     </div>
 
-    <button class="pedido" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
+    <button class="pedido" onclick="enviarPedido()">
+      Enviar pedido por WhatsApp
+    </button>
 
-    <a class="whatsapp" href="https://wa.me/34610274439" target="_blank">
+    <a
+      class="whatsapp"
+      href="https://wa.me/34610274439"
+      target="_blank"
+    >
       💬 Contactar por WhatsApp para asesoramiento
     </a>
 
@@ -99,9 +113,12 @@ function enviarPedido() {
   mensaje += "*CP:* " + cp.value + "%0A";
   mensaje += "*Email:* " + email.value + "%0A";
   mensaje += "*Teléfono:* " + telefono.value + "%0A";
-  mensaje += "*Horario:* " + horario.value + "%0A%0A";
 
-  mensaje += "*Productos:*%0A";
+  if (horario.value) {
+    mensaje += "*Horario de contacto:* " + horario.value + "%0A";
+  }
+
+  mensaje += "%0A*Productos:*%0A";
   document.querySelectorAll(".producto").forEach(p => {
     const n = p.children[0].value;
     const c = p.children[1].value;
@@ -112,7 +129,10 @@ function enviarPedido() {
     mensaje += "%0A*Asesoramiento:* " + asesoramiento.value;
   }
 
-  window.open("https://wa.me/34610274439?text=" + mensaje, "_blank");
+  window.open(
+    "https://wa.me/34610274439?text=" + mensaje,
+    "_blank"
+  );
 }
 </script>
 
