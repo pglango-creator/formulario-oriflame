@@ -1,82 +1,117 @@
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: #fdecef;
-  padding: 20px;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 480px;
   margin: auto;
-  background: white;
+  background: #fff;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 16px;
 }
 
-h1, .subtitle {
+h1 {
   text-align: center;
 }
 
-.section {
-  background: #fff3f6;
+.subtitle {
+  text-align: center;
+  color: #777;
+}
+
+.beneficios {
+  background: #fff0f4;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 20px;
+}
+
+.beneficios ul {
+  padding-left: 18px;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
 }
 
 input, textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  margin-top: 6px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
 }
 
 .producto {
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .producto input {
   flex: 1;
 }
 
-button.add {
-  background: #ffd6de;
+.eliminar {
+  background: #ffe1e6;
+  border: none;
+  border-radius: 10px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.add {
+  margin-top: 10px;
+  background: #ffd1dc;
   border: none;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 12px;
   width: 100%;
+  cursor: pointer;
 }
 
 .info {
+  margin-top: 14px;
   font-size: 14px;
-  margin: 15px 0;
 }
 
 .privacidad {
   display: flex;
   gap: 10px;
-  font-size: 14px;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  font-size: 13px;
+  margin-top: 16px;
 }
 
-button.pedido {
+.btn-pedido {
+  margin-top: 18px;
   background: #ff7a90;
   color: white;
   border: none;
   padding: 14px;
-  border-radius: 25px;
+  border-radius: 14px;
   width: 100%;
-  margin-bottom: 10px;
+  font-size: 16px;
 }
 
-a.whatsapp {
+.btn-asesoramiento {
   display: block;
-  background: #25d366;
-  color: white;
+  margin-top: 14px; /* 👈 separación entre botones */
   text-align: center;
-  padding: 14px;
-  border-radius: 25px;
+  background: #2ecc71;
+  color: white;
   text-decoration: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
 }
