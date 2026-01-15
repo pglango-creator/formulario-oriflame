@@ -8,148 +8,84 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fff1f2, #fff7ed);
-      margin: 0;
+      background: #fff7ed;
       padding: 20px;
     }
-
-    .contenedor {
-      max-width: 680px;
+    .box {
+      max-width: 600px;
       margin: auto;
       background: white;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      color: #e11d48;
-      text-align: center;
-    }
-
-    h2 {
-      margin-top: 25px;
-      border-bottom: 2px solid #fda4af;
-    }
-
-    .producto {
-      background: #fafafa;
-      padding: 15px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      position: relative;
-    }
-
-    .eliminar {
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      background: #ef4444;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 34px;
-      height: 34px;
-      font-size: 20px;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 10px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-top: 5px;
-    }
-
-    button {
-      width: 100%;
-      background: linear-gradient(90deg, #f43f5e, #ec4899);
-      color: white;
-      border: none;
-      padding: 15px;
-      font-size: 16px;
+      padding: 20px;
       border-radius: 14px;
-      margin-top: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
     }
+    h1 { text-align: center; color: #e11d48; }
+    label { font-weight: bold; margin-top: 12px; display: block; }
+    input, textarea {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border-radius: 10px; border: 1px solid #ccc;
+    }
+    button, a.btn {
+      display: block; width: 100%;
+      text-align: center;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 14px;
+      font-size: 16px;
+      margin-top: 20px;
+      text-decoration: none;
+      border: none;
+    }
+    .hidden { display: none; }
   </style>
 </head>
 
 <body>
 
-<div class="contenedor">
-
+<div class="box">
   <h1>Pedido Oriflame</h1>
 
-  <h2>Datos</h2>
   <label>Nombre</label>
   <input id="nombre">
-
-  <label>Dirección</label>
-  <input id="direccion">
 
   <label>Teléfono</label>
   <input id="telefono">
 
-  <h2>Productos</h2>
+  <label>Producto</label>
+  <input id="producto">
 
-  <div id="productos">
-    <div class="producto">
-      <label>Código</label>
-      <input class="codigo">
-      <label>Cantidad</label>
-      <input type="number" class="cantidad" value="1">
-    </div>
-  </div>
+  <label>Cantidad</label>
+  <input type="number" id="cantidad" value="1">
 
-  <button onclick="agregarProducto()">➕ Añadir otro producto</button>
-
-  <h2>Asesoramiento (opcional)</h2>
+  <label>Asesoramiento (opcional)</label>
   <textarea id="asesoramiento"></textarea>
 
-  <!-- BOTÓN FINAL (CLAVE) -->
-  <button onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
+  <button onclick="preparar()">Preparar pedido</button>
 
+  <!-- ENLACE REAL (CLAVE) -->
+  <a id="enlaceWA" class="btn hidden" target="_blank">
+    👉 Enviar pedido por WhatsApp
+  </a>
 </div>
 
 <script>
-function agregarProducto() {
-  const d = document.createElement("div");
-  d.className = "producto";
-  d.innerHTML = `
-    <button class="eliminar" onclick="this.parentElement.remove()">×</button>
-    <label>Código</label>
-    <input class="codigo">
-    <label>Cantidad</label>
-    <input type="number" class="cantidad" value="1">
-  `;
-  document.getElementById("productos").appendChild(d);
-}
-
-function enviarWhatsApp() {
-  let productos = "";
-  document.querySelectorAll(".producto").forEach((p, i) => {
-    productos += `${i + 1}. ${p.querySelector(".codigo").value} x ${p.querySelector(".cantidad").value}\n`;
-  });
-
+function preparar() {
   const mensaje =
     `PEDIDO ORIFLAME\n\n` +
     `Nombre: ${nombre.value}\n` +
-    `Dirección: ${direccion.value}\n` +
     `Teléfono: ${telefono.value}\n\n` +
-    `Productos:\n${productos}\n` +
-    (asesoramiento.value ? `Asesoramiento:\n${asesoramiento.value}` : "");
+    `Producto: ${producto.value}\n` +
+    `Cantidad: ${cantidad.value}\n\n` +
+    (asesoramiento.value ? `Asesoramiento:\n${asesoramiento.value}` : '');
 
   const url =
     "https://api.whatsapp.com/send?phone=34610274439&text=" +
     encodeURIComponent(mensaje);
 
-  window.open(url, "_self");
+  const enlace = document.getElementById("enlaceWA");
+  enlace.href = url;
+  enlace.classList.remove("hidden");
 }
 </script>
 
