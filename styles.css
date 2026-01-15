@@ -1,176 +1,150 @@
+/* RESET BÁSICO */
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+  font-family: 'Comic Sans MS', 'Arial', sans-serif;
 }
 
+/* FONDO */
 body {
   margin: 0;
   padding: 0;
-  background: #ffeef2;
+  background: #fdebed;
 }
 
-.container {
-  max-width: 520px;
-  margin: 20px auto;
+/* CONTENEDOR */
+.container,
+.recipiente {
+  max-width: 480px;
+  margin: 0 auto;
   background: #ffffff;
-  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 20px;
 }
 
+/* TÍTULOS */
 h1 {
   text-align: center;
+  font-size: 28px;
   margin-bottom: 5px;
 }
 
-.subtitulo {
+.subtitular {
   text-align: center;
-  color: #777;
+  color: #888;
   margin-bottom: 20px;
 }
 
-/* BENEFICIOS */
-.beneficios {
-  background: #fff0f4;
-  border-radius: 16px;
+h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* CAJA BENEFICIOS */
+.casilla-miembro {
+  background: #fdebed;
   padding: 15px;
+  border-radius: 15px;
   margin-bottom: 20px;
 }
 
-.beneficios h2 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-.beneficios ul {
-  padding-left: 18px;
+.casilla-miembro ul {
+  padding-left: 20px;
   margin: 0;
 }
 
-.beneficios li {
+.casilla-miembro li {
   margin-bottom: 8px;
 }
 
-/* FORMULARIO */
+/* CAMPOS */
 label {
+  font-weight: bold;
   display: block;
-  font-weight: 600;
   margin-top: 15px;
-  margin-bottom: 5px;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 15px;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 80px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  font-size: 16px;
 }
 
 /* PRODUCTOS */
-h3 {
-  margin-top: 25px;
-}
-
 .producto {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
 }
 
-.producto input[type="text"] {
-  flex: 2;
-}
-
-.producto input[type="number"] {
+.producto input {
   flex: 1;
 }
 
-.eliminar {
-  background: #ff6b6b;
-  border: none;
-  color: white;
-  border-radius: 10px;
-  padding: 0 12px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
 /* BOTÓN AÑADIR PRODUCTO */
-.add {
-  width: 100%;
-  margin-top: 10px;
-  padding: 12px;
-  background: #ffd6de;
+.btn-add {
+  background: #ffd6dc;
   border: none;
-  border-radius: 14px;
-  font-weight: bold;
+  padding: 12px;
+  width: 100%;
+  border-radius: 25px;
+  font-size: 16px;
+  margin-top: 10px;
   cursor: pointer;
 }
 
-/* TEXTO INFORMATIVO */
+/* MENSAJES INFO */
 .info {
-  margin-top: 20px;
-  font-size: 14px;
+  margin-top: 15px;
+  font-size: 15px;
 }
 
-.info p {
-  margin: 6px 0;
-}
-
-/* PRIVACIDAD (CORREGIDO PARA IPHONE) */
-.privacidad {
+/* PRIVACIDAD – FIX iPHONE (AQUÍ ESTÁ LA CLAVE) */
+.privacidad,
+.checkbox-privacidad {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   margin: 20px 0;
-  font-size: 14px;
 }
 
-.privacidad input {
+.privacidad input[type="checkbox"],
+.checkbox-privacidad input[type="checkbox"] {
   margin-top: 4px;
+  flex-shrink: 0;
 }
 
-/* BOTÓN ENVIAR PEDIDO */
-.enviar {
-  width: 100%;
-  padding: 14px;
-  background: #ff7b93;
+.privacidad label,
+.checkbox-privacidad label {
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+/* BOTÓN ENVIAR */
+.btn-enviar {
+  background: #ff7a8a;
+  color: #fff;
   border: none;
-  border-radius: 18px;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  font-size: 18px;
+  margin-top: 15px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
-/* BOTÓN WHATSAPP ASESORAMIENTO */
-.whatsapp {
-  display: block;
-  text-align: center;
-  margin-top: 12px;
-  padding: 14px;
+/* BOTÓN WHATSAPP */
+.btn-whatsapp {
   background: #25d366;
-  color: white;
-  text-decoration: none;
-  border-radius: 18px;
-  font-weight: bold;
-}
-
-/* MEJORAS MÓVIL */
-@media (max-width: 480px) {
-  .producto {
-    flex-direction: column;
-  }
-
-  .eliminar {
-    width: 100%;
-    margin-top: 5px;
-  }
+  color: #fff;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+  cursor: pointer;
 }
