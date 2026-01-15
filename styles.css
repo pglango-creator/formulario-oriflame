@@ -1,15 +1,21 @@
-body {
-  margin: 0;
-  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif;
-  background: #ffe6eb;
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
 }
 
-.contenedor {
-  max-width: 500px;
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffeef2;
+}
+
+.container {
+  max-width: 520px;
   margin: 20px auto;
   background: #ffffff;
   border-radius: 20px;
   padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 h1 {
@@ -23,40 +29,51 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* BENEFICIOS */
 .beneficios {
-  background: #fff1f4;
-  border-radius: 15px;
+  background: #fff0f4;
+  border-radius: 16px;
   padding: 15px;
   margin-bottom: 20px;
 }
 
 .beneficios h2 {
   margin-top: 0;
+  font-size: 18px;
 }
 
 .beneficios ul {
-  padding-left: 20px;
+  padding-left: 18px;
+  margin: 0;
 }
 
+.beneficios li {
+  margin-bottom: 8px;
+}
+
+/* FORMULARIO */
 label {
   display: block;
+  font-weight: 600;
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-input,
-textarea {
+input, textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
 }
 
 textarea {
   resize: vertical;
+  min-height: 80px;
 }
 
-.productos-titulo {
+/* PRODUCTOS */
+h3 {
   margin-top: 25px;
 }
 
@@ -66,47 +83,94 @@ textarea {
   margin-bottom: 10px;
 }
 
-.producto input {
+.producto input[type="text"] {
+  flex: 2;
+}
+
+.producto input[type="number"] {
   flex: 1;
 }
 
-.btn-secundario {
-  width: 100%;
-  background: #ffd1dc;
+.eliminar {
+  background: #ff6b6b;
   border: none;
-  border-radius: 20px;
-  padding: 12px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.btn-principal {
-  width: 100%;
-  background: #ff7a8a;
   color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 15px;
+  border-radius: 10px;
+  padding: 0 12px;
+  cursor: pointer;
   font-size: 16px;
-  margin-top: 20px;
+}
+
+/* BOTÓN AÑADIR PRODUCTO */
+.add {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: #ffd6de;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.privacidad {
-  display: flex;
-  gap: 10px;
+/* TEXTO INFORMATIVO */
+.info {
   margin-top: 20px;
   font-size: 14px;
 }
 
-.btn-whatsapp {
+.info p {
+  margin: 6px 0;
+}
+
+/* PRIVACIDAD (CORREGIDO PARA IPHONE) */
+.privacidad {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.privacidad input {
+  margin-top: 4px;
+}
+
+/* BOTÓN ENVIAR PEDIDO */
+.enviar {
+  width: 100%;
+  padding: 14px;
+  background: #ff7b93;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* BOTÓN WHATSAPP ASESORAMIENTO */
+.whatsapp {
   display: block;
   text-align: center;
+  margin-top: 12px;
+  padding: 14px;
   background: #25d366;
   color: white;
-  padding: 15px;
-  border-radius: 25px;
-  margin-top: 20px;
   text-decoration: none;
-  font-size: 16px;
+  border-radius: 18px;
+  font-weight: bold;
 }
+
+/* MEJORAS MÓVIL */
+@media (max-width: 480px) {
+  .producto {
+    flex-direction: column;
+  }
+
+  .eliminar {
+    width: 100%;
+    margin-top: 5px;
+  }
+  }
