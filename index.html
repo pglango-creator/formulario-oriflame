@@ -52,6 +52,7 @@
         <div class="producto">
           <input type="text" placeholder="Nombre o código del producto">
           <input type="number" placeholder="Cantidad" min="1">
+          <button type="button" class="btn-eliminar" onclick="eliminarProducto(this)">✖</button>
         </div>
       </div>
 
@@ -62,6 +63,12 @@
       <label>¿Necesitas asesoramiento? (Opcional)</label>
       <textarea placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
 
+      <!-- TEXTO INFORMATIVO -->
+      <p class="info">
+        📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
+        📦 Si realizas un pedido, te escribiré para confirmar disponibilidad, precio y forma de pago.
+      </p>
+
       <div class="privacidad">
         <input type="checkbox" required>
         <span>
@@ -70,7 +77,7 @@
         </span>
       </div>
 
-      <!-- BOTÓN PEDIDO (NO SE CAMBIA) -->
+      <!-- BOTÓN PEDIDO (SIN CAMBIOS) -->
       <button type="submit" class="btn-principal">
         Enviar pedido por WhatsApp
       </button>
@@ -88,8 +95,16 @@
 
   </div>
 
-  <!-- SCRIPT ENVÍO AUTOMÁTICO A WHATSAPP -->
+  <!-- SCRIPT -->
   <script>
+    function actualizarBotonesEliminar() {
+      const productos = document.querySelectorAll(".producto");
+      productos.forEach(p => {
+        const boton = p.querySelector(".btn-eliminar");
+        boton.style.display = productos.length > 1 ? "inline-block" : "none";
+      });
+    }
+
     function agregarProducto() {
       const contenedor = document.getElementById("productos");
       const div = document.createElement("div");
@@ -97,9 +112,21 @@
       div.innerHTML = `
         <input type="text" placeholder="Nombre o código del producto">
         <input type="number" placeholder="Cantidad" min="1">
+        <button type="button" class="btn-eliminar" onclick="eliminarProducto(this)">✖</button>
       `;
       contenedor.appendChild(div);
+      actualizarBotonesEliminar();
     }
+
+    function eliminarProducto(boton) {
+      const confirmar = confirm("¿Seguro que quieres eliminar este producto?");
+      if (!confirmar) return;
+
+      boton.parentElement.remove();
+      actualizarBotonesEliminar();
+    }
+
+    actualizarBotonesEliminar();
 
     document.getElementById("pedidoForm").addEventListener("submit", function(e) {
       e.preventDefault();
