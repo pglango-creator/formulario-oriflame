@@ -40,9 +40,6 @@
       <label>Teléfono *</label>
       <input type="tel" id="telefono" required>
 
-      <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
-      <input type="text" id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
-
       <h2>🛒 Productos</h2>
 
       <div id="productos">
@@ -57,6 +54,9 @@
 
       <label>¿Necesitas asesoramiento? (Opcional)</label>
       <textarea id="asesoramiento" placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
+
+      <label>¿En qué horario te viene mejor que te contacte? (Opcional)</label>
+      <input type="text" id="horario" placeholder="Ej: mañanas, tardes, a partir de las 18h">
 
       <p class="info">
         📌 Si solicitas asesoramiento, me pondré en contacto contigo lo antes posible.<br>
@@ -129,7 +129,7 @@
 
       mensaje += `%0A🛒 *Productos:*%0A`;
 
-      document.querySelectorAll(".producto").forEach((prod, i) => {
+      document.querySelectorAll(".producto").forEach((prod) => {
         const nombreProd = prod.querySelector(".producto-nombre").value;
         const cantidadProd = prod.querySelector(".producto-cantidad").value;
         if (nombreProd) {
@@ -146,4 +146,4 @@
   </script>
 
 </body>
-          </html>
+</html>
